@@ -4,52 +4,60 @@
 </div>
 
 <ion-content>
-
-<form action="">
-<div id="container" style="margin-bottom: 20px;">
+  <div id="container" style="margin-bottom: 20px;">
+<form [formGroup]="etudiantForm" (ngSubmit)="creerEtudiant()">
 
 
   <div class="form-controle">
     <div>
       <label>Nom</label>
-      <input  type="text" placeholder="Ex. Keita " >
+      <input  type="text" placeholder="Ex. Keita " formControlName="nom" required>
     </div>
 
     <div>
       <label>Prenom</label>
-      <input  type="text" placeholder="Ex. Lanciné" >
+      <input  type="text" placeholder="Ex. Lanciné" formControlName="prenom" required >
+    </div>
+
+    <div>
+      <label>Age</label>
+      <input  type="number" placeholder="Ex. 20" formControlName="age" required>
     </div>
 
     <div>
       <label>Telephone</label>
-      <input  type="text" placeholder="98 91 89 96" >
+      <input  type="number" placeholder="98 91 89 96" formControlName="telephone" required>
     </div>
 
-    <div>
-      <label>Domaine/Filière</label>
-      <input  type="text" placeholder="Sante/Fondamental" >
-    </div>
+    <ion-select label="Choisis votre niveau" label-placement="floating" fill="solid" formControlName="niveau" (ionChange)="loadFilieres()">
+      <ion-select-option *ngFor="let niveau of niveaux" [value]="niveau.idNiveau">{{ niveau.nom }}</ion-select-option>
+    </ion-select>
 
-    <div>
-      <label>Niveau/Classe</label>
-      <input  type="text" placeholder="Licence 1 / Generaliste" >
-    </div>
+    <ion-select label="Choisis votre filiere" label-placement="floating" fill="solid" formControlName="filiere" (ionChange)="loadClasses()">
+      <ion-select-option *ngFor="let filiere of filieres" [value]="filiere.idFiliere">{{ filiere.nom }}</ion-select-option>
+    </ion-select>
+
+
+    <ion-select label="Choisis votre classe" label-placement="floating" fill="solid" formControlName="classe">
+      <ion-select-option *ngFor="let classe of classes" [value]="classe.idClasse">{{ classe.nom }}</ion-select-option>
+    </ion-select>
 
     <div>
       <label>Mot de passe</label>
-      <input type="password" placeholder="******************">
+      <input type="password" placeholder="******************" formControlName="motDePasse" required>
     </div>
     <div>
       <label>Répeter Mot de passe</label>
-      <input type="password" placeholder="******************">
+      <input type="password" placeholder="******************" id="repeter">
     </div>
-    <a id="a" style="color: #fff !important;">
+    <button type="submit" id="a" style="color: #fff !important;">
       S' inscrire
-    </a>
+    </button>
 
-    <p >Déjà un compte,<a routerLink="../loginEtudiant" style="color: #725787 !important; border-radius: 5px; ">Se connecter</a></p>
-  </div>
+
+        </div>
+ </form>
+  <p style="margin-top: 20px;" >Déjà un compte,  <a routerLink="../loginEtudiant" style="color: #725787 !important; border-radius: 5px; ">Se connecter</a></p>
 </div>
-</form>
 
 </ion-content>
