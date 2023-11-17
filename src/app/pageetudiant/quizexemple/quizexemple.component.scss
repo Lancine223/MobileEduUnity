@@ -1,0 +1,42 @@
+::selection{
+  color: #ffffff;
+  background: #007bff;
+
+}
+section .option_list .option:hover{
+  color: #007bff;
+  background: #ffffff;
+  border: 1px solid #b8daff;
+}
+
+section .option_list .option.correct{
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+section .option_list .option.incorrect{
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+section .option_list .option.disabled{
+  pointer-events: none !important;
+}
+.resultb_box
+{
+  position: absolute;
+  top: 50%;
+  left: 50;
+  transform: translate(-50%, -50%) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+}
+.info_box.activeInfo, .quiz_box.activeQuiz,
+.result_box.activeResult{
+
+  opacity: 1 ;
+  z-index: 5;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+
+}

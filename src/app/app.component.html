@@ -1,0 +1,147 @@
+<!-- <ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app> -->
+
+<!--
+
+<ion-app>
+  <ion-menu>
+<div id="sidebar">
+
+<figure><img alt="person" src="../../../assets/img/user.png" style="border-radius: 50%;" width="100px" height="100px" />
+  <figcaption><strong style="color: #ffffff;"> <marquee behavior="" direction="left">Adama Keita</marquee> </strong></figcaption>
+</figure>
+
+<div class="main">
+        <div class="inside">
+          <div routerLink="/tache" >
+            <ion-icon name="person-circle-outline"></ion-icon>
+            Profile
+          </div>
+
+
+          <div>
+            <ion-icon name="library-sharp"></ion-icon>
+            Mon bulletin
+          </div>
+          <div>
+            <ion-icon name="school-sharp" ></ion-icon>
+            Enseignant
+          </div>
+
+          <div>
+            <ion-icon name="dice-sharp"></ion-icon>
+            Mes devoirs
+          </div>
+          <div>
+            <ion-icon name="newspaper-sharp"></ion-icon>
+            Tâche
+          </div>
+          <div style="margin-top: 40px;">
+            <ion-icon name="close-circle-sharp" color="bright"></ion-icon>
+          </div>
+        </div>
+        <figure style="margin-top: 100%;"><img alt="person" src="../../../assets/img/logo.png" width="100%" />
+
+        </figure>
+        </div>
+
+  </div>
+  </ion-menu>
+  <div >
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
+        </ion-buttons>
+<ion-title>menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" [fullscreen]="true" >
+
+
+
+     </ion-content>
+  </div>
+
+</ion-app>
+ -->
+
+ <ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <!-- <ion-list id="inbox-list">
+          <ion-list-header>Inbox</ion-list-header>
+          <ion-note>hi@ionicframework.com</ion-note>
+          <ion-menu-toggle>
+            <ion-item  [routerLink]="['/homestudent']" lines="none" detail="false" routerLinkActive="selected">
+               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>ACCUEIL</ion-label>
+            </ion-item>
+            <ion-item  [routerLink]="['/tache']" lines="none" detail="false" routerLinkActive="selected">
+               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>Profile</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list> -->
+        <div id="sidebar">
+
+          <figure><img alt="person" src="../../../assets/img/user.png" style="border-radius: 50%;" width="100px" height="100px" />
+            <figcaption><strong style="color: #ffffff;"> <marquee behavior="" direction="left">Adama Keita</marquee> </strong></figcaption>
+          </figure>
+
+          <div class="main">
+                  <div class="inside">
+                    <ion-menu-toggle>
+                      <div [routerLink]="['/profile']" >
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                        Profile
+                      </div>
+                    </ion-menu-toggle>
+
+<ion-menu-toggle>
+
+  <div [routerLink]="['/monbilletin']" >
+    <ion-icon name="library-sharp"></ion-icon>
+    Mon bulletin
+  </div>
+</ion-menu-toggle>
+                    <ion-menu-toggle>
+                      <div [routerLink]="['/mesenseignant']">
+                        <ion-icon name="school-sharp" ></ion-icon>
+                        Enseignant
+                      </div>
+                    </ion-menu-toggle>
+
+                    <ion-menu-toggle>
+                      <div [routerLink]="['/mesdevoirs']">
+                        <ion-icon name="dice-sharp"></ion-icon>
+                        Mes devoirs
+                      </div>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle>
+                    <div [routerLink]="['/tache']" >
+                        <ion-icon name="newspaper-sharp"></ion-icon>
+                        Tâche
+                      </div>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle>
+                      <div style="margin-top: 40px;">
+                        <ion-icon name="close-circle-sharp" color="bright"></ion-icon>
+                      </div>
+                    </ion-menu-toggle>
+                  </div>
+                  <figure style="margin-top: 100%;"><img alt="person" src="../../../assets/img/logo.png" width="100%" />
+
+                  </figure>
+                  </div>
+
+            </div>
+
+
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

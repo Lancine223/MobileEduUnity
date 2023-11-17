@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: #725787;"> Les programmes </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+    <h1 style="text-align: center;">Consulter vos programmes </h1>
+   <div class="card-groupe">
+      <a routerLink="mosquee" style="text-decoration: none;">
+        <ion-card style="border-radius: 25px;">
+          <div class="logoimg"><img alt="Silhouette of mountains" src="../../../assets/img/pro.png" width="100px" height="80px" /></div>
+          <ion-card-header>
+            <ion-card-title style="font-size: 20px; text-align: center; font-weight: bold; color: #725787;">Cours</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </a>
+      <!---->
+        <ion-card style="border-radius: 25px;" [routerLink]="['/list-video']">
+          <div class="logoimg"><img alt="Silhouette of mountains" src="../../../assets/img/pro.png" width="100px" height="80px" /></div>
+          <ion-card-header>
+            <ion-card-title style="font-size: 20px; text-align: center; font-weight: bold; color: #725787;">Videos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+      <!---->
+
+      <a routerLink="mosquee" style="text-decoration: none;">
+        <ion-card style="border-radius: 25px;">
+          <div class="logoimg"><img alt="Silhouette of mountains" src="../../../assets/img/quiz.png" width="100px" height="80px" /></div>
+          <ion-card-header>
+            <ion-card-title style="font-size: 20px; text-align: center; font-weight: bold; color: #725787;">Quiz</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </a>
+      <!---->
+      <a routerLink="lecteur" style="text-decoration: none;">
+        <ion-card style="border-radius: 25px;">
+          <div class="logoimg"><img alt="Silhouette of mountains" src="../../../assets/img/pro.png" width="100px" height="80px" /></div>
+          <ion-card-header>
+            <ion-card-title style="font-size: 20px; text-align: center; font-weight: bold; color: #725787;">Forum</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </a>
+      <!---->
+
+   </div>
+    <!---->
+    <a routerLink="lecteur" style="text-decoration: none;">
+      <ion-card style="border-radius: 25px;">
+        <div class="logoimgab">
+          <img alt="Silhouette of mountains" src="../../../assets/img/abonner.jpg" width="200px" height="100px"/>
+        </div>
+
+        <ion-card-header class="boto">
+          <ion-card-title style="font-size: 20px; text-align: center; font-weight: bold; color: #ffffff;">Abonner plus
+           </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </a>
+    <!---->
+
+  </div>
+  <div class="round" [routerLink]="['/mesenseignant']">
+    <ion-icon name="arrow-forward-outline" style="color: #ffffff;"></ion-icon>
+  </div>
+</ion-content>
+
+

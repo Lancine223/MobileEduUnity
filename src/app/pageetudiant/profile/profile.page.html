@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+
+
+
+      <div class="header">
+
+      </div>
+      <div class="contenue">
+        <img style="border-radius: 50px;" src="../../../assets/img/user.png" alt="" width="100px" height="100px" >
+        <h1></h1>
+        <div class="membre">
+          <h6 style="margin: 20px;">
+          lacinekeita20@gmail.com
+          </h6>
+        </div>
+        <ion-button style="margin-top: 20px;" shape="round"  routerLink="deuxieme">
+          <ion-icon name="edit"></ion-icon>
+          Modifier le profile
+        </ion-button>
+      </div>
+
+      <div class="round" [routerLink]="['/mesenseignant']">
+        <ion-icon name="arrow-forward-outline" style="color: #ffffff;"></ion-icon>
+      </div>
+
+      
+</ion-content>
+

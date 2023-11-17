@@ -1,0 +1,35 @@
+
+
+
+<ion-content>
+
+
+<div id="container">
+  <div class="img">
+    <img src="../../assets/img/logo.png" alt="" >
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+        <div class="form">
+              <div *ngIf="loginForm.get('email').hasError('email')">
+                <p style="color: red">Votre email est invalid</p>
+              </div>
+              <div>
+                <label>Email</label>
+                <input  type="email" placeholder="votremail@gmail.com" formControlName="email" >
+              </div>
+              <div>
+                <label>Mot de passe</label>
+                <input type="password" placeholder="******************" formControlName="motDePasse">
+              </div>
+              <button type="submit" id="a"  style="color: #fff !important;" [disabled]="loginForm.invalid">
+                Se connecter
+              </button>
+
+        </div>
+</form>
+<h6 style="text-align: center;">Pas de compte? <a routerLink="../signupEnseignant"  style="color: #725787 !important; font-weight: bold;border-radius: 5px;">S'inscrire</a></h6>
+</div>
+
+</ion-content>
+
+
