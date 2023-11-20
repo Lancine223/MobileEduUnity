@@ -1,94 +1,16 @@
-<!-- <ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app> -->
-
-<!--
-
-<ion-app>
-  <ion-menu>
-<div id="sidebar">
-
-<figure><img alt="person" src="../../../assets/img/user.png" style="border-radius: 50%;" width="100px" height="100px" />
-  <figcaption><strong style="color: #ffffff;"> <marquee behavior="" direction="left">Adama Keita</marquee> </strong></figcaption>
-</figure>
-
-<div class="main">
-        <div class="inside">
-          <div routerLink="/tache" >
-            <ion-icon name="person-circle-outline"></ion-icon>
-            Profile
-          </div>
-
-
-          <div>
-            <ion-icon name="library-sharp"></ion-icon>
-            Mon bulletin
-          </div>
-          <div>
-            <ion-icon name="school-sharp" ></ion-icon>
-            Enseignant
-          </div>
-
-          <div>
-            <ion-icon name="dice-sharp"></ion-icon>
-            Mes devoirs
-          </div>
-          <div>
-            <ion-icon name="newspaper-sharp"></ion-icon>
-            Tâche
-          </div>
-          <div style="margin-top: 40px;">
-            <ion-icon name="close-circle-sharp" color="bright"></ion-icon>
-          </div>
-        </div>
-        <figure style="margin-top: 100%;"><img alt="person" src="../../../assets/img/logo.png" width="100%" />
-
-        </figure>
-        </div>
-
-  </div>
-  </ion-menu>
-  <div >
-    <ion-header [translucent]="true">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
-        </ion-buttons>
-<ion-title>menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding" [fullscreen]="true" >
-
-
-
-     </ion-content>
-  </div>
-
-</ion-app>
- -->
 
  <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <!-- <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-          <ion-menu-toggle>
-            <ion-item  [routerLink]="['/homestudent']" lines="none" detail="false" routerLinkActive="selected">
-               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>ACCUEIL</ion-label>
-            </ion-item>
-            <ion-item  [routerLink]="['/tache']" lines="none" detail="false" routerLinkActive="selected">
-               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>Profile</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list> -->
-        <div id="sidebar">
 
-          <figure><img alt="person" src="../../../assets/img/user.png" style="border-radius: 50%;" width="100px" height="100px" />
-            <figcaption><strong style="color: #ffffff;"> <marquee behavior="" direction="left">Adama Keita</marquee> </strong></figcaption>
+        <div id="sidebar" *ngIf="etudiant != null">
+
+          <figure>
+            <div class="round" style=" background: #ffffff; border-radius: 50%;" width="100px" height="100px" >
+              <h2> <strong style=" color: #725787">{{etudiant.prenom.charAt(0)}} {{etudiant.nom.charAt(0)}}</strong> </h2>
+            </div>
+            <figcaption><strong style="color: #ffffff;"> <marquee behavior="" direction="left">{{etudiant.prenom}} {{etudiant.nom}}</marquee> </strong></figcaption>
           </figure>
 
           <div class="main">
@@ -128,7 +50,11 @@
                     </ion-menu-toggle>
                     <ion-menu-toggle>
                       <div style="margin-top: 40px;">
-                        <ion-icon name="close-circle-sharp" color="bright"></ion-icon>
+                         <!-- <button id="aaa" (click)="deconnexionEtudiant()"> <ion-icon name="close-circle-sharp" color="bright"></ion-icon> Deconnexion</button> -->
+                         <ion-button color="secondary"  (click)="deconnexionEtudiant()">
+                          <ion-icon slot="start" name="close-circle-outline" color="danger"></ion-icon>
+                          Deconnexion
+                        </ion-button>
                       </div>
                     </ion-menu-toggle>
                   </div>
@@ -138,6 +64,76 @@
                   </div>
 
             </div>
+
+
+
+            <div id="sidebar" *ngIf="enseignant != null">
+              <!-- <div id="sidebar" > -->
+
+
+                <div class="main">
+                  <div class="round" style=" margin-top: 15px; background: #ffffff; border-radius: 50%;" width="100px" height="100px" >
+                    <h2> <strong style=" color: #725787">{{enseignant.prenom.charAt(0)}} {{enseignant.nom.charAt(0)}}</strong> </h2>
+                  </div>
+
+                  <strong style="color: #ffffff; text-align: center; margin-top: 15px; "> <marquee behavior="" direction="left">{{enseignant.prenom}} {{enseignant.nom}}</marquee> </strong>
+                </div>
+
+
+
+              <div class="main">
+                      <div class="inside">
+                        <ion-menu-toggle>
+                          <div [routerLink]="['/profileenseignant']" >
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                            Profile
+                          </div>
+                        </ion-menu-toggle>
+
+    <ion-menu-toggle>
+
+      <div [routerLink]="['/apropos']" >
+        <ion-icon name="library-sharp"></ion-icon>
+        Apropos
+      </div>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <div [routerLink]="['/programmeenseignant']" >
+          <ion-icon name="newspaper-sharp"></ion-icon>
+          Programme
+        </div>
+      </ion-menu-toggle>
+                        <ion-menu-toggle>
+                          <div [routerLink]="['/meseleve']">
+                            <ion-icon name="school-sharp" ></ion-icon>
+                           Mes Etudiant
+                          </div>
+                        </ion-menu-toggle>
+
+                        <ion-menu-toggle>
+                          <div [routerLink]="['/mesdevoirsenseignant']">
+                            <ion-icon name="create"></ion-icon>
+                            Mes devoirs
+                          </div>
+                        </ion-menu-toggle>
+
+                        <ion-menu-toggle>
+                          <div style="margin-top: 40px;"  >
+                            <!-- <ion-icon name="close-circle-sharp" color="bright"></ion-icon> <ion-button (click)="deconnexionEnseig()">Deconnexion</ion-button> -->
+                            <ion-button color="secondary" (click)="deconnexionEnseig()">
+                              <!-- <ion-icon name="close-circle-outline"></ion-icon> -->
+                              <ion-icon slot="start" name="close-circle-outline" color="danger"></ion-icon>
+                              Deconnexion
+                            </ion-button>
+                          </div>
+                        </ion-menu-toggle>
+                      </div>
+                      <figure style="margin-top: 100%;"><img alt="person" src="../../../assets/img/logo.png" width="100%" />
+
+                      </figure>
+                      </div>
+
+                </div>
 
 
       </ion-content>

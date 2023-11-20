@@ -53,6 +53,43 @@ const routes: Routes = [
     path: 'list-video',
     loadChildren: () => import('./pageetudiant/list-video/list-video.module').then( m => m.ListVideoPageModule)
   },
+  
+  {
+    path: 'profileenseignant',
+    loadChildren: () => import('./pageenseignant/profileenseignant/profileenseignant.module').then( m => m.ProfileenseignantPageModule)
+  },
+  {
+    path: 'programmeenseignant',
+    loadChildren: () => import('./pageenseignant/programmeenseignant/programmeenseignant.module').then( m => m.ProgrammeenseignantPageModule)
+  },
+  {
+    path: 'meseleve',
+    loadChildren: () => import('./pageenseignant/meseleve/meseleve.module').then( m => m.MeselevePageModule)
+  },
+  {
+    path: 'mesdevoirsenseignant',
+    loadChildren: () => import('./pageenseignant/mesdevoirsenseignant/mesdevoirsenseignant.module').then( m => m.MesdevoirsenseignantPageModule)
+  },
+  {
+    path: 'mesvideos',
+    loadChildren: () => import('./pageenseignant/mesvideos/mesvideos.module').then( m => m.MesvideosPageModule)
+  },
+  {
+    path: 'mescours',
+    loadChildren: () => import('./pageenseignant/mescours/mescours.module').then( m => m.MescoursPageModule)
+  },
+  {
+    path: 'mesquiz',
+    loadChildren: () => import('./pageenseignant/mesquiz/mesquiz.module').then( m => m.MesquizPageModule)
+  },
+  {
+    path: 'mesforum',
+    loadChildren: () => import('./pageenseignant/mesforum/mesforum.module').then( m => m.MesforumPageModule)
+  },
+  {
+    path: 'apropos',
+    loadChildren: () => import('./pageenseignant/apropos/apropos.module').then( m => m.AproposPageModule)
+  },
 ];
 
 @NgModule({

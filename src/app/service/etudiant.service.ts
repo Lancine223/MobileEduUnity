@@ -40,20 +40,17 @@ export class EtudiantService {
       );
 }
 
-
-
-
-  login(email: string, motDePasse: string): Observable<any> {
+  login(telephone: string, motDePasse: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
     const body = new URLSearchParams();
-    body.set('email', email);
+    body.set('telephone', telephone);
     body.set('motDePasse', motDePasse);
 
     return this.http.post(`${this.baseUrl}login`, body.toString(), { headers });
   }
 
-  getEnseignantList():Observable<any> {
+  getEtudiantList():Observable<any> {
     return this.http.get("http://localhost:8080/etudiant/list");
     // console.log(this.getAdminList());
   }

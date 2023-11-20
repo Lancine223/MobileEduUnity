@@ -1,0 +1,35 @@
+
+
+<form [formGroup]="coursForm" (ngSubmit)="onSubmitNew()" enctype="multipart/form-data" >
+<div id="container" style="margin-bottom: 20px;">
+
+  <div class="form-controle">
+    <div class="dv">
+      <label>Titre du cours</label>
+      <input  type="text" placeholder="Ex. La mort de chaka" formControlName="titre" required>
+    </div>
+
+    <div class="parent-div">
+      <div class="btn-upload"  style="color: #725787 !important; font-weight: bold; padding: 10px; border-radius: 5px;" >importer le document </div>
+      <input type="file" name="upfile" formControlName="document" multiple="multiple" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf"  (change)="documentChange($event)" (change)="onFileChange($event)" required />
+    </div>
+    <div class="img">
+      <div *ngIf="documentSrc; else showEmptyContainer">
+          <p>importer avec succès</p>
+      </div>
+      <ng-template #showEmptyContainer>
+          <!-- <div ></div> -->
+      </ng-template>
+    </div>
+
+    <button type="submit" id="a" style="color: #fff !important;">
+      ajouter
+    </button>
+
+    <button [mat-dialog-close]="true"  id="a" style="color: #fff !important; background: gray !important;">
+      Annuler
+    </button>
+  </div>
+</div>
+</form>
+

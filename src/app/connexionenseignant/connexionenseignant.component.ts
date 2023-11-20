@@ -31,32 +31,16 @@ export class ConnexionenseignantComponent  implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, motDePasse } = this.loginForm.value;
-      // this.enseignantService.login(email, motDePasse).subscribe(
-      //   (response: any) => {
-      //     const IdAdmincon = response.idEnseignant;
-      //     localStorage.setItem('idEnseignant', IdAdmincon);
-      //     this.autService.setEnseignantConnect(response);
-      //     // Gérer la connexion réussie ici
-      //     this.autService.triggerUpdate()
-      //     this.router.navigate(['/teacher']);
-      //   },
-      //   (error) => {
-      //     alert(error.message);
-      //     // Swal.fire({
-      //     //   icon: 'error',
-      //     //   title: 'Oops...',
-      //     //   text: "Email ou mot de passe invalide !",
-
-      //     //   // footer: '<a href>Why do I have this issue?</a>'
-      //     // })
-      //   }
-      // );
 
       this.enseignantService.login(email, motDePasse).subscribe(
         async response => {
           // Handle successful login response
           console.log('Login successful:', response);
          this.router.navigate(['/teacher']);
+         const IdAdmincon = response.idEnseignant;
+         localStorage.setItem('idEnseignant', IdAdmincon);
+         this.autService.setEnseignantConnect(response);
+
         },
         async error => {
           // Handle login error
@@ -75,41 +59,6 @@ export class ConnexionenseignantComponent  implements OnInit {
   }
 
 
-  // async onSubmit() {
-  //   if (this.loginForm.valid) {
-  //     const { email, motDePasse } = this.loginForm.value;
-  //     this.enseignantService.loginEnseignant(email, motDePasse).subscribe(
-  //       (response: any) => {
-  //         const IdEnseignantcon = response.idEnseignant;
-  //         localStorage.setItem('idEnseignant', IdEnseignantcon);
-  //         this.autService.setEnseignantConnect(response);
-  //         // Gérer la connexion réussie ici
-  //         this.autService.triggerUpdate()
-  //         this.router.navigate(['/TeacherPage']);
-  //       },
-  //       async (error) => {
-
-  //     //     Swal.fire({
-  //     //       icon: 'error',
-  //     //       title: 'Oops...',
-  //     //       text: "Email ou mot de passe invalide !",
-
-  //     //       // footer: '<a href>Why do I have this issue?</a>'
-  //     //     })
-  //     //   }
-  //     // );
-  //     const alert = await this.alertController.create({
-  //       header: 'Error',
-  //       message: error, // Vérifiez la structure de votre réponse
-  //       buttons: ['OK']
-  //     });
-  //     await alert.present();
-
-  //       }
-  //     );
-
-  //   }
-  // }
 
 
 }

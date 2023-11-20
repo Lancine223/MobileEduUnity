@@ -1,29 +1,32 @@
 
-<div class="img" style="margin-top: 40px;">
-  <img src="../../assets/img/login.png" alt="" width="150px" >
-  <h2 style="color: #725787; margin-left: 20px;">Connexion</h2>
-</div>
+
+
 <ion-content>
-<form action="">
-<!-- <div id="container"> -->
 
-  <div class="form">
-    <div>
-      <label>Telephone</label>
-      <input  type="email" placeholder="98 91 89 96" >
+
+  <div id="container">
+    <div class="img">
+      <img src="../../assets/img/login.png" alt="" >
     </div>
-    <div>
-      <label>Mot de passe</label>
-      <input type="password" placeholder="******************">
-    </div>
-    <a id="a" routerLink="/student" style="color: #fff !important;">
-      Se connecter
-    </a>
-    <h6 style="text-align: center;">Pas de compte? <a routerLink="../signupEtudiant"  style="color: #725787 !important; font-weight: bold;border-radius: 5px;">S'inscrire</a></h6>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+          <div class="form">
+                <div>
+                  <label>Telephone</label>
+                  <input  type="text" placeholder="98918996" formControlName="telephone" >
+                </div>
+                <div>
+                  <label>Mot de passe</label>
+                  <input type="password" placeholder="******************" formControlName="motDePasse">
+                </div>
+                <button type="submit" id="a"  style="color: #fff !important;" [disabled]="loginForm.invalid">
+                  Se connecter
+                </button>
+
+          </div>
+  </form>
+  <h6 style="text-align: center; margin-top: 20px;"><span style="margin-right: 10px;"> Pas de compte?</span><a routerLink="../signupEtudiant"  style="color: #725787 !important; font-weight: bold;border-radius: 5px; padding-left: 10px ; padding-right: 10px;">S'inscrire</a></h6>
   </div>
-<!-- </div> -->
-</form>
+
+  </ion-content>
 
 
-
-</ion-content>
