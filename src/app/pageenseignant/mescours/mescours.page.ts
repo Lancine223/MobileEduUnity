@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Cours } from 'src/app/model/cours';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AjoutercoursComponent } from '../ajoutercours/ajoutercours.component';
 import { Enseignant } from 'src/app/model/enseignant';
 import { CoursService } from 'src/app/service/cours.service';
@@ -19,6 +20,7 @@ export class MescoursPage implements OnInit {
   enseignant: Enseignant|any;
   constructor(  private _dialog: MatDialog,
     private coursService: CoursService,
+    private sanitizer: DomSanitizer,
     private authService: AuthService,
     private alertController: AlertController) {
       this.enseignant = this.authService.getEnseignantConnect();
@@ -48,19 +50,22 @@ export class MescoursPage implements OnInit {
       }
     } catch (error) {
       console.error('Erreur lors du chargement des cours', error);
-
-      const alert = await this.alertController.create({
-        header: 'Erreur',
-        message: 'Une erreur s\'est produite lors du chargement des cours.',
-        buttons: ['OK']
-      });
-
-      await alert.present();
     }
   }
 
 
+  openDocument(documentPath: string) {
+    // Assumez que documentPath contient le chemin du document (peut être un PDF, Word, etc.)
 
+    // Dans cet exemple, on suppose que le chemin est une URL vers le document.
+    // Vous devrez adapter cela en fonction de la structure de vos documents.
+
+    // Sécurisez l'URL du document pour éviter les problèmes de sécurité.
+    const safeUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(documentPath);
+
+    // Ouvrez une nouvelle page ou une modale pour afficher le document.
+    // Vous devrez créer une nouvelle page ou modale pour gérer cela.
+  }
 
   async presentAlert(cours: any) {
     const alert = await this.alertController.create({
@@ -86,15 +91,20 @@ export class MescoursPage implements OnInit {
   }
 
   deleteCours(cours: any) {
-    this.coursService.deleteCours(cours.idCours).subscribe(
+    this.coursService.deleteCours(cours).subscribe(
       (response) => {
         // Le cours a été supprimé avec succès, vous pouvez mettre à jour la liste des cours si nécessaire
         this.getListeCoursByEnseignant();
+        this.coursService.triggerUpdate();
       },
       (error) => {
         console.error('Erreur lors de la suppression du cours :', error);
+        this.getListeCoursByEnseignant();
+        this.coursService.triggerUpdate();
       }
     );
+    this.getListeCoursByEnseignant();
+    this.coursService.triggerUpdate();
   }
 
 

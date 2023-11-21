@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// import { MbscModule } from '@mobiscroll/angular';
 import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { QuizexempleComponent } from './pageetudiant/quizexemple/quizexemple.component';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { AjoutervideoComponent } from './pageenseignant/ajoutervideo/ajoutervideo.component';
 import { AppComponent } from './app.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,13 +24,16 @@ import { AjoutercoursComponent } from './pageenseignant/ajoutercours/ajoutercour
      DemarrageComponent,
      ConnexionenseignantComponent,
      AjoutercoursComponent,
+     AjoutervideoComponent,
       ConnexionetudiantComponent,
        DemarrageDeuxComponent,
        InscriptionenseignantComponent,
        InscriptionetudiantComponent ],
   imports: [BrowserModule,
     MatDialogModule,
+
      HttpClientModule,
+
      ReactiveFormsModule,
       FormsModule,
        IonicModule.forRoot(), AppRoutingModule],

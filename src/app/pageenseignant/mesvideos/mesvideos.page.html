@@ -9,9 +9,54 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">mesvideos</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
+  <div class="main">
+    <h2 style="text-align: center;"> Les cours</h2>
+
+    <ion-button shape="round" routerLink="deuxieme" (click)="OpenDialogAdd('600ms', '600ms')">
+      <ion-icon name="add-circle" style="margin-right: 10px;"></ion-icon>
+      Ajouter
+    </ion-button>
+
+    <div class="listuser animate__animated animate__fadeInUp">
+      <!-- <ion-card *ngFor="let element of listVideos">
+        <ion-card-subtitle>{{element.titre}}</ion-card-subtitle>
+        <ion-card-content >
+          <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+            <source [src]="element.video" type="video/mp4" />
+           </video>
+              <div class="iconitem">
+
+                <ion-icon name="eye" (click)="openDocument(element.document)"></ion-icon>
+                <ion-icon name="create-outline" style="color: #005B2F;" [routerLink]="['../modifierutilisateur']"></ion-icon>
+                <ion-icon name="trash" style="color: red;" (click)="presentAlert(element)"></ion-icon>
+              </div>
+        </ion-card-content>
+      </ion-card> -->
+
+      <!--test-->
+      <!-- <mbsc-card [options]="settings">
+        <video autoplay muted controls>
+            <source  src="http://img.mobiscroll.com/demos/trailer_iphone.m4v" type="video/x-m4v">
+        </video>
+        <mbsc-card-header>
+            <mbsc-card-title>Big Buck Bunny</mbsc-card-title>
+        </mbsc-card-header>
+        <mbsc-card-content>
+            Open movie made with open source software. Check out it's trailer!
+        </mbsc-card-content>
+    </mbsc-card> -->
+      <!--test-->
+
+
+    </div>
+
+    <div class="round" [routerLink]="['/programmeenseignant']">
+      <ion-icon name="arrow-back-outline" style="color: #ffffff;" size="large"></ion-icon>
+    </div>
+  </div>
 </ion-content>

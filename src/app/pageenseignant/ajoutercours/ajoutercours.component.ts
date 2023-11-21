@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Enseignant } from 'src/app/model/enseignant';
@@ -21,6 +22,7 @@ export class AjoutercoursComponent  implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     // private snack : CoreService,
+    private _dialogRef: MatDialogRef<AjoutercoursComponent>,
     private route: Router,
     private coursService: CoursService,
      private authService: AuthService,
@@ -61,6 +63,7 @@ export class AjoutercoursComponent  implements OnInit {
             try {
                await this.coursService.createCours(data, this.document).toPromise();
                this.coursService.triggerUpdate();
+               this._dialogRef.close(true);
 
             } catch (error: any) { // Spécifiez le type de l'objet error
 

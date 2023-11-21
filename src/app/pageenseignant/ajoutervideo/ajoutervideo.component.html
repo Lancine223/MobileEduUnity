@@ -1,3 +1,35 @@
-<p>
-  ajoutervideo works!
-</p>
+
+
+<form [formGroup]="videosForm" (ngSubmit)="onSubmitNew()" enctype="multipart/form-data" >
+  <div id="container" style="margin-bottom: 20px;">
+
+    <div class="form-controle">
+      <div class="dv">
+        <label>Titre de video</label>
+        <input  type="text" placeholder="Ex. La poo " formControlName="titre" required>
+      </div>
+
+      <div class="parent-div">
+        <div class="btn-upload"  style="color: #725787 !important; font-weight: bold; padding: 10px; border-radius: 5px;" >uploader une video </div>
+        <input type="file" name="upfile" formControlName="video" multiple="multiple" accept=".mp4, mp3"  (change)="documentChange($event)" (change)="onFileChange($event)" required />
+      </div>
+      <div class="img">
+        <div *ngIf="videosSrc; else showEmptyContainer">
+            <p>televerser avec succès</p>
+        </div>
+        <ng-template #showEmptyContainer>
+            <!-- <div ></div> -->
+        </ng-template>
+      </div>
+
+      <button type="submit" id="a" style="color: #fff !important;">
+        ajouter
+      </button>
+
+      <button [mat-dialog-close]="true"  id="a" style="color: #fff !important; background: gray !important;">
+        Annuler
+      </button>
+    </div>
+  </div>
+  </form>
+
