@@ -30,6 +30,7 @@ export class AuthService {
     this.triggerUpdate();
   }
   getEnseignantConnect():Enseignant |undefined {
+    console.log("sdfghjhgf  :==========",this.enseignant1)
     return this.enseignant1;
   }
 

@@ -9,9 +9,35 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">apropos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="main">
+
+
+    <ion-button *ngIf="!apropos " shape="round" routerLink="deuxieme" (click)="OpenDialogAdd('600ms', '600ms')">
+      <ion-icon name="add-circle" style="margin-right: 10px;"></ion-icon>
+      Ajouter
+    </ion-button>
+
+    <div *ngIf="apropos" class="listuser animate__animated animate__fadeInUp">
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{enseignant?.prenom}} {{enseignant?.nom}}</ion-card-title>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{apropos?.biographie}}
+        </ion-card-content>
+
+        <ion-button (click)="openEditForm(apropos ,'600ms', '600ms')" ><ion-icon name="eye" ></ion-icon> Modifier</ion-button>
+      </ion-card>
+
+  </div>
+
+  <div  *ngIf="!apropos " > <h4 style="text-align: center;"> Parler un peu sur vous (votre specialité/matiere et annéé d'expreience)
+  seuelement quelque phrases.
+</h4></div>
+
+
+  </div>
 </ion-content>

@@ -1,3 +1,25 @@
-<p>
-  ajouterapropos works!
-</p>
+
+
+
+
+
+<form [formGroup]="aproposForm" (ngSubmit)="onSubmit()" >
+  <div id="container" style="margin-bottom: 20px;">
+
+    <div class="form-controle">
+      <div class="dv">
+        <label>Biographie</label>
+        <textarea rows="5" cols="50" maxlength="150" formControlName="biographie">
+        </textarea>
+        <!-- <input  type="text" placeholder="Ex. commenter vous ici " formControlName="biographie" required> -->
+      </div>
+
+      <button type="submit" id="a" style="color: #fff !important;" [disabled]="!aproposForm.valid">{{data ? 'Modifier': 'Enregistrer'}}
+      </button>
+      <button [mat-dialog-close]="true"  id="a" style="color: #fff !important; background: gray !important;">
+        Annuler
+      </button>
+    </div>
+  </div>
+  </form>
+

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // import { MbscModule } from '@mobiscroll/angular';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { QuizexempleComponent } from './pageetudiant/quizexemple/quizexemple.component';
@@ -18,22 +19,26 @@ import { InscriptionenseignantComponent } from './inscriptionenseignant/inscript
 import { InscriptionetudiantComponent } from './inscriptionetudiant/inscriptionetudiant.component';
 import { EnseignantService } from './service/enseignant.service';
 import { AjoutercoursComponent } from './pageenseignant/ajoutercours/ajoutercours.component';
+import { AjouteraproposComponent } from './pageenseignant/ajouterapropos/ajouterapropos.component';
+import { ModifierprofileenseignantComponent } from './pageenseignant/modifierprofileenseignant/modifierprofileenseignant.component';
+// import { MescoursPage } from './pageenseignant/mescours/mescours.page';
 
 @NgModule({
   declarations: [AppComponent,QuizexempleComponent,
      DemarrageComponent,
+     ModifierprofileenseignantComponent,
      ConnexionenseignantComponent,
      AjoutercoursComponent,
      AjoutervideoComponent,
+      AjouteraproposComponent,
       ConnexionetudiantComponent,
        DemarrageDeuxComponent,
        InscriptionenseignantComponent,
        InscriptionetudiantComponent ],
   imports: [BrowserModule,
     MatDialogModule,
-
+    PdfViewerModule,
      HttpClientModule,
-
      ReactiveFormsModule,
       FormsModule,
        IonicModule.forRoot(), AppRoutingModule],

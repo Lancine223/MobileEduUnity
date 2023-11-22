@@ -1,17 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <!-- <ion-title>profileenseignant</ion-title> -->
     <ion-buttons slot="start">
       <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
     </ion-buttons>
-    <ion-title style="color: #725787;"> Profile </ion-title>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profileenseignant</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="header">
+
+
+      <div class="contenue">
+
+
+
+        <div class="bottom">
+          <div class="round">
+            <h1>{{enseignant.prenom.charAt(0)}} {{enseignant.nom.charAt(0)}}</h1>
+          </div>
+
+          <h1>  <h1> {{enseignant.prenom}} {{enseignant.nom}}</h1> </h1>
+          <div class="membre">
+            <h2 >
+            {{enseignant?.email}}
+            </h2>
+          </div>
+          <ion-button shape="round" (click)="openEditForm(enseignant ,'600ms', '600ms')">
+            <ion-icon name="create-outline"></ion-icon>
+            Modifier profile
+          </ion-button>
+        </div>
+      </div>
 </ion-content>
+

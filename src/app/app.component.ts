@@ -24,12 +24,10 @@ export class AppComponent {
   ngOnInit(){
     this.authService.update$.subscribe(() => {
       this.enseignant = this.authService.getEnseignantConnect();
-      console.log("Enseignant mis à jour :", this.enseignant);
     });
 
     this.authEtSerice.update$.subscribe(() => {
       this.etudiant = this.authEtSerice.getEtudiantConnect();
-      console.log("Etudiant mis à jour :", this.etudiant);
     });
   }
 

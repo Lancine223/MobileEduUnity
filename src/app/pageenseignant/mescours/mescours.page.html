@@ -1,3 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-title>mesdevoirsenseignant</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-icon size="large" name="arrow-undo-outline" style="color: #725787;" [routerLink]="['/programmeenseignant']"></ion-icon>
+    </ion-buttons>
+    <ion-title style="color: #725787;"> Mes Cours </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
   <div class="main">
     <h2 style="text-align: center;"> Les cours</h2>
@@ -8,27 +17,23 @@
     </ion-button>
 
     <div class="listuser animate__animated animate__fadeInUp">
-      <ion-card *ngFor="let element of listCours">
-        <ion-card-content >
-          <ion-list>
-            <ion-item >
-              <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="../../../assets/img/co.jpg" style="border-radius: 50%;" />
-              </ion-thumbnail>
-              <ion-label>{{element.titre}}</ion-label>
-              <div class="iconitem">
-                <ion-icon name="eye" (click)="openDocument(element.document)"></ion-icon>
-                <ion-icon name="create-outline" style="color: #005B2F;" [routerLink]="['../modifierutilisateur']"></ion-icon>
-                <ion-icon name="trash" style="color: red;" (click)="presentAlert(element)"></ion-icon>
-              </div>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
-    </div>
+      <ion-card color="light" *ngFor="let element of listCours">
+        <ion-card-header>
+          <ion-card-subtitle>{{element.titre}}</ion-card-subtitle>
+        </ion-card-header>
 
-    <div class="round" [routerLink]="['/programmeenseignant']">
-      <ion-icon name="arrow-back-outline" style="color: #ffffff;" size="large"></ion-icon>
-    </div>
+        <div class="iconitem">
+          <ion-button fill="clear" (click)="onDocumentClick(element.document)" style="color: #ffffff"><ion-icon name="eye" ></ion-icon> Lire</ion-button>
+          <ion-button color="danger"   (click)="presentAlert(element)" style="color: #ffffff">Supprimer <ion-icon name="trash" ></ion-icon></ion-button>
+        </div>
+      </ion-card>
+
+
+
+
+
+
+  </div>
+
   </div>
 </ion-content>

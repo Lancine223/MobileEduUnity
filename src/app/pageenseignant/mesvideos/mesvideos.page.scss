@@ -14,10 +14,21 @@ ion-button {
   --background: #725787;
 
   }
+ion-card{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  }
+video{
+  box-sizing: border-box;
+}
 .main{
   margin: 10px;
 }
-
+.row{
+  display: flex;
+  justify-content: space-between;
+}
 
 #container{
   display: grid;
@@ -34,6 +45,7 @@ ion-button {
   margin-left: 20px;
 
 }
+
 .card{
   display: grid;
   grid-template-columns: repeat(2, 1fr);

@@ -39,6 +39,6 @@ export class VideosService {
       body: videos
     };
 
-    return this.http.delete(`${this.baseUrl}/delete`, httpOptions);
+    return this.http.delete(`${this.baseUrl}/supprimer`, httpOptions);
   }
 }

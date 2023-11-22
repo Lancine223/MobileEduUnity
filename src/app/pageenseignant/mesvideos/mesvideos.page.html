@@ -1,8 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <!-- <ion-title>mesvideos</ion-title> -->
+    <!-- <ion-title>mesdevoirsenseignant</ion-title> -->
     <ion-buttons slot="start">
-      <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
+      <ion-icon size="large" name="arrow-undo-outline" style="color: #725787;" [routerLink]="['/programmeenseignant']"></ion-icon>
     </ion-buttons>
     <ion-title style="color: #725787;"> Mes Videos </ion-title>
   </ion-toolbar>
@@ -15,7 +15,7 @@
     </ion-toolbar>
   </ion-header> -->
   <div class="main">
-    <h2 style="text-align: center;"> Les cours</h2>
+    <h2 style="text-align: center;"> </h2>
 
     <ion-button shape="round" routerLink="deuxieme" (click)="OpenDialogAdd('600ms', '600ms')">
       <ion-icon name="add-circle" style="margin-right: 10px;"></ion-icon>
@@ -23,40 +23,26 @@
     </ion-button>
 
     <div class="listuser animate__animated animate__fadeInUp">
-      <!-- <ion-card *ngFor="let element of listVideos">
-        <ion-card-subtitle>{{element.titre}}</ion-card-subtitle>
-        <ion-card-content >
-          <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
-            <source [src]="element.video" type="video/mp4" />
-           </video>
-              <div class="iconitem">
 
-                <ion-icon name="eye" (click)="openDocument(element.document)"></ion-icon>
-                <ion-icon name="create-outline" style="color: #005B2F;" [routerLink]="['../modifierutilisateur']"></ion-icon>
-                <ion-icon name="trash" style="color: red;" (click)="presentAlert(element)"></ion-icon>
-              </div>
-        </ion-card-content>
-      </ion-card> -->
 
       <!--test-->
-      <!-- <mbsc-card [options]="settings">
-        <video autoplay muted controls>
-            <source  src="http://img.mobiscroll.com/demos/trailer_iphone.m4v" type="video/x-m4v">
+      <ion-card *ngFor="let element of listVideos">
+
+
+        <video width="320" height="240" controls>
+          <source [src]="element.video" type="video/mp4">
         </video>
-        <mbsc-card-header>
-            <mbsc-card-title>Big Buck Bunny</mbsc-card-title>
-        </mbsc-card-header>
-        <mbsc-card-content>
-            Open movie made with open source software. Check out it's trailer!
-        </mbsc-card-content>
-    </mbsc-card> -->
+        <ion-card-content>
+          <div class="row"><h2>{{element.titre}}</h2>
+            <ion-button (click)="presentAlert(element)"><ion-icon name="trash" style="color: red;" ></ion-icon></ion-button></div>
+        </ion-card-content>
+
+      </ion-card>
       <!--test-->
 
 
     </div>
 
-    <div class="round" [routerLink]="['/programmeenseignant']">
-      <ion-icon name="arrow-back-outline" style="color: #ffffff;" size="large"></ion-icon>
-    </div>
+   
   </div>
 </ion-content>

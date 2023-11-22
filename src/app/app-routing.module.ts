@@ -53,7 +53,7 @@ const routes: Routes = [
     path: 'list-video',
     loadChildren: () => import('./pageetudiant/list-video/list-video.module').then( m => m.ListVideoPageModule)
   },
-  
+
   {
     path: 'profileenseignant',
     loadChildren: () => import('./pageenseignant/profileenseignant/profileenseignant.module').then( m => m.ProfileenseignantPageModule)
@@ -90,6 +90,11 @@ const routes: Routes = [
     path: 'apropos',
     loadChildren: () => import('./pageenseignant/apropos/apropos.module').then( m => m.AproposPageModule)
   },
+  {
+    path: 'pdfviewerenseignant/:document',
+    loadChildren: () => import('./pageenseignant/pdfviewerenseignant/pdfviewerenseignant.module').then( m => m.PdfviewerenseignantPageModule)
+  },
+
 ];
 
 @NgModule({

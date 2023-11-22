@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Cours } from 'src/app/model/cours';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AjoutercoursComponent } from '../ajoutercours/ajoutercours.component';
 import { Enseignant } from 'src/app/model/enseignant';
 import { CoursService } from 'src/app/service/cours.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,13 +20,13 @@ export class MescoursPage implements OnInit {
   enseignant: Enseignant|any;
   constructor(  private _dialog: MatDialog,
     private coursService: CoursService,
-    private sanitizer: DomSanitizer,
+    private router: Router,
     private authService: AuthService,
     private alertController: AlertController) {
       this.enseignant = this.authService.getEnseignantConnect();
       this.getListeCoursByEnseignant();
      }
-
+    //  src = 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf';
   ngOnInit() {
 
     this.coursService.update$.subscribe(() => {
@@ -54,18 +54,13 @@ export class MescoursPage implements OnInit {
   }
 
 
-  openDocument(documentPath: string) {
-    // Assumez que documentPath contient le chemin du document (peut être un PDF, Word, etc.)
-
-    // Dans cet exemple, on suppose que le chemin est une URL vers le document.
-    // Vous devrez adapter cela en fonction de la structure de vos documents.
-
-    // Sécurisez l'URL du document pour éviter les problèmes de sécurité.
-    const safeUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(documentPath);
-
-    // Ouvrez une nouvelle page ou une modale pour afficher le document.
-    // Vous devrez créer une nouvelle page ou modale pour gérer cela.
+  onDocumentClick(document: string) {
+    // Naviguer vers la page de visualisation du PDF avec le nom du document en tant que paramètre
+    this.router.navigate(['/pdfviewerenseignant', document]);
   }
+
+
+
 
   async presentAlert(cours: any) {
     const alert = await this.alertController.create({

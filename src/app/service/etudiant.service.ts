@@ -14,6 +14,8 @@ export class EtudiantService {
 
   update$ = this.updateEvent.asObservable();
 
+  
+
   private baseUrl = 'http://localhost:8080/etudiant/'; // Remplacez l'URL par celle de votre contrôleur Spring Boot
 
   constructor(private http: HttpClient

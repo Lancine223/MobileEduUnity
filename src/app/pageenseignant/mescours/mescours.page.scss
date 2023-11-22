@@ -25,13 +25,12 @@ ion-button {
   border-radius: 0px  0px 200px 0px;
 }
 .iconitem{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 .iconitem {
   font-size: 20px !important;
-  margin-left: 20px;
+  margin: 20px;
 
 }
 .card{

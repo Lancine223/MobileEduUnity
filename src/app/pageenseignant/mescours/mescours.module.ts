@@ -7,11 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { MescoursPageRoutingModule } from './mescours-routing.module';
 
 import { MescoursPage } from './mescours.page';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    PdfViewerModule,
     IonicModule,
     MescoursPageRoutingModule
   ],

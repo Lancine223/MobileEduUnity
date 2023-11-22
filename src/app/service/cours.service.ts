@@ -35,10 +35,27 @@ export class CoursService {
     return this.http.put(`${this.baseUrl}/modifier/${id}`, formData);
   }
 
+  // getListeByEnseignant(idEnseignant: number): Observable<Cours[]> {
+  //   const url = `${this.baseUrl}/list/${idEnseignant}`;
+  //   return this.http.get<Cours[]>(url);
+  // }
+
+
+
   getListeByEnseignant(idEnseignant: number): Observable<Cours[]> {
     const url = `${this.baseUrl}/list/${idEnseignant}`;
-    return this.http.get<Cours[]>(url);
+
+    // Set headers including the 'no-cors' mode
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const options = {
+      headers: headers,
+      mode: 'no-cors' as RequestMode // Set 'no-cors' mode
+    };
+
+    // Make the request
+    return this.http.get<Cours[]>(url, options);
   }
+
 
   deleteCours(cours: any): Observable<any> {
     const httpOptions = {

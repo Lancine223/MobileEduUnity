@@ -1,39 +1,27 @@
-<!-- <ion-header [translucent]="true">
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>teacher</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: #725787;"> Accueil </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">teacher</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content> -->
+  <div id="container">
+    <div class="marge">
+      <h2 style="text-align: center; margin-top: 45px;"> Bienvenu à EduUnity </h2>
+    <div class="img">
+      <img src="../../../assets/img/hom2.png" alt="logo" width="100%">
+    </div>
+    <div class="text"><h4><span style="color: #725787; font-weight: bold;">EduUnity </span> offre aux enseignants une plateforme dynamique pour partager leur expertise,
+      créer du contenu éducatif innovant et inspirer la prochaine génération .</h4></div>
 
+    <ion-button shape="round"  [routerLink]="['/programmeenseignant']">
+      <strong>Voir vos catalogues</strong>
+      <ion-icon name="arrow-forward-circle" style="margin-left: 10px; font-size: 30px;" ></ion-icon>
 
-<ion-app>
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="#725787">
-        <ion-buttons slot="start">
-          <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
-        </ion-buttons>
-        <ion-title style="color: #725787;"> Accueil </ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">This is the menu content.</ion-content>
-  </ion-menu>
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <!-- <ion-title>Menu</ion-title> -->
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding"> teach Tap the button in the toolbar to open the menu. </ion-content>
+    </ion-button>
+    </div>
   </div>
-</ion-app>
+</ion-content>
