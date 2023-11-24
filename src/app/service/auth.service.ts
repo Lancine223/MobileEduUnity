@@ -11,8 +11,6 @@ export class AuthService {
     throw new Error('Method not implemented.');
   }
 
-  private enseignant1 : Enseignant|any;
-  public isAuthEnseignant : boolean = false;
 
   constructor() { }
 
@@ -24,24 +22,14 @@ export class AuthService {
  triggerUpdate() {
     this.updateEvent.next();
   }
-  setEnseignantConnect(enseignant : Enseignant) {
-    this.enseignant1 = enseignant;
-    this.isAuthEnseignant = true;
-    this.triggerUpdate();
-  }
-  getEnseignantConnect():Enseignant |undefined {
-    console.log("sdfghjhgf  :==========",this.enseignant1)
-    return this.enseignant1;
-  }
+
+
 
   deconnecter() {
-    this.enseignant1 = null;
-    this.isAuthEnseignant = false;
+    localStorage.clear();
     this.triggerUpdate(); // Informez les composants abonnés du changement (déconnexion)
   }
-  getIsAuthEnseignant(){
-    return this.isAuthEnseignant;
-  }
+
 
 
 }

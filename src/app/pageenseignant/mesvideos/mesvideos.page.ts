@@ -20,7 +20,7 @@ export class MesvideosPage implements OnInit {
     private videosService: VideosService,
     private authService: AuthService,
     private alertController: AlertController) {
-      this.enseignant = this.authService.getEnseignantConnect();
+      this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
       this.getListeVideosByEnseignant();
      }
 
@@ -28,7 +28,7 @@ export class MesvideosPage implements OnInit {
 
     this.videosService.update$.subscribe(() => {
       this.getListeVideosByEnseignant();
-      this.enseignant = this.authService.getEnseignantConnect();
+      this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     });
 
   }

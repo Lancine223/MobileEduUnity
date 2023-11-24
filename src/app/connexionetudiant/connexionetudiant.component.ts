@@ -36,9 +36,8 @@ export class ConnexionetudiantComponent  implements OnInit {
       this.etudiantService.login(telephone, motDePasse).subscribe(
         async response => {
          this.router.navigate(['/student']);
-         const IdAdmincon = response.idEtudiant;
-          localStorage.setItem('idEtudiant', IdAdmincon);
-          this.authService.setEtudiantConnect(response);
+         localStorage.setItem('etudiant', JSON.stringify(response));
+         this.authService.triggerUpdate();
         },
         async error => {
               const alert = await this.alertController.create({

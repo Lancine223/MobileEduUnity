@@ -23,7 +23,7 @@ export class AjouteraproposComponent  implements OnInit {
     private enseignantService: EnseignantService,
     @Inject(MAT_DIALOG_DATA) public data: Apropos | any
   ) {
-    this.enseignant = this.authService.getEnseignantConnect();
+    this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     this.aproposForm = this.formBuilder.group({
       idApropos: this.data ? this.data.Apropos : '', // Si c'est une modification, initialisez avec l'ID existant
       biographie: [this.data ? this.data.biographie : '', Validators.required],
@@ -34,7 +34,7 @@ export class AjouteraproposComponent  implements OnInit {
   ngOnInit(): void {
     this.aproposForm.patchValue(this.data);
     this.authService.update$.subscribe(() => {
-      this.enseignant = this.authService.getEnseignantConnect();
+      this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     });
   }
 

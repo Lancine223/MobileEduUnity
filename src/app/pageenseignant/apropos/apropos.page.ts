@@ -21,14 +21,14 @@ export class AproposPage implements OnInit {
     private enseignantServ: EnseignantService,
     private _dialog: MatDialog
   ) {
-    this.enseignant = this.authService.getEnseignantConnect();
+    this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     this.chargerApropos();
   }
 
   ngOnInit() {
 
     this.authService.update$.subscribe(() => {
-      this.enseignant = this.authService.getEnseignantConnect();
+          this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     });
 
     this.enseignantServ.update$.subscribe(() => {

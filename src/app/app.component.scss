@@ -17,6 +17,8 @@ ion-content{
   background-color: #725787;
   margin-top: 45px;
   background: #725787;
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s;
 }
 .round{
   display: grid;

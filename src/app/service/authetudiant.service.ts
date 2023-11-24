@@ -23,21 +23,12 @@ export class AuthetudiantService {
  triggerUpdate() {
     this.updateEvent.next();
   }
-  setEtudiantConnect(etudiant : Etudiant) {
-    this.etudiant1 = etudiant;
-    this.isAuthEtudiant = true;
-    this.triggerUpdate();
-  }
-  getEtudiantConnect():Etudiant |undefined {
-    return this.etudiant1;
-  }
+ 
+
 
   deconnecter() {
-    this.etudiant1 = null;
-    this.isAuthEtudiant = false;
-    this.triggerUpdate(); // Informez les composants abonnés du changement (déconnexion)
+    localStorage.clear();
+    this.triggerUpdate();
   }
-  getIsAuthEtudiant(){
-    return this.isAuthEtudiant;
-  }
+
 }

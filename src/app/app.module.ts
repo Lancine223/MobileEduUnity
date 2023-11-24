@@ -21,12 +21,16 @@ import { EnseignantService } from './service/enseignant.service';
 import { AjoutercoursComponent } from './pageenseignant/ajoutercours/ajoutercours.component';
 import { AjouteraproposComponent } from './pageenseignant/ajouterapropos/ajouterapropos.component';
 import { ModifierprofileenseignantComponent } from './pageenseignant/modifierprofileenseignant/modifierprofileenseignant.component';
+import { AbonnerComponent } from './pageetudiant/abonner/abonner.component';
+import { ModifierprofileetudiantComponent } from './pageetudiant/modifierprofileetudiant/modifierprofileetudiant.component';
 // import { MescoursPage } from './pageenseignant/mescours/mescours.page';
 
 @NgModule({
   declarations: [AppComponent,QuizexempleComponent,
      DemarrageComponent,
+     ModifierprofileetudiantComponent,
      ModifierprofileenseignantComponent,
+     AbonnerComponent,
      ConnexionenseignantComponent,
      AjoutercoursComponent,
      AjoutervideoComponent,

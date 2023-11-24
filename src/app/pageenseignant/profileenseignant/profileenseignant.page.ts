@@ -36,7 +36,7 @@ export class ProfileenseignantPage implements OnInit {
   }
 
   assigneerEnseignant(){
-    this.enseignant = this.authService.getEnseignantConnect();
+    this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
   }
 
 

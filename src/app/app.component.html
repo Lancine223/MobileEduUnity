@@ -1,17 +1,18 @@
 
- <ion-app>
-  <ion-split-pane contentId="main-content">
+ <ion-app >
+  <ion-split-pane contentId="main-content"  >
     <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
+      <ion-content >
 
-        <div id="sidebar" *ngIf="etudiant != null">
+        <div id="sidebar" *ngIf=" etudiant " >
 
-          <figure>
-            <div class="round" style=" background: #ffffff; border-radius: 50%;" width="100px" height="100px" >
-              <h2> <strong style=" color: #725787">{{etudiant.prenom.charAt(0)}} {{etudiant.nom.charAt(0)}}</strong> </h2>
+          <div class="main2">
+            <div class="round" style=" margin-top: 15px; background: #ffffff; border-radius: 50%;" width="100px" height="100px" >
+              <h1> <strong style=" color: #725787">{{etudiant.prenom.charAt(0)}} {{etudiant.nom.charAt(0)}}</strong> </h1>
             </div>
-            <figcaption><strong style="color: #ffffff;"> <marquee behavior="" direction="left">{{etudiant.prenom}} {{etudiant.nom}}</marquee> </strong></figcaption>
-          </figure>
+
+            <strong style="color: #ffffff; text-align: center; margin-top: 15px; "> <marquee behavior="" direction="left">{{etudiant.prenom}} {{etudiant.nom}}</marquee> </strong>
+          </div>
 
           <div class="main">
                   <div class="inside">
@@ -58,8 +59,11 @@
                       </div>
                     </ion-menu-toggle>
                   </div>
-                  <figure style="margin-top: 100%;"><img alt="person" src="../../../assets/img/logo.png" width="100%" />
-
+                  <figure class=" animate__animated animate__fadeInBottomLeft" style="margin-top: 100%;"><img alt="person" src="../../../assets/img/latest.png" width="100%" />
+                    <figcaption style="color: #ffffff;">
+                      Conctat/Mali <br>
+                      91-78-05-07
+                    </figcaption>
                   </figure>
                   </div>
 
@@ -67,7 +71,7 @@
 
 
 
-            <div id="sidebar" *ngIf="enseignant != null">
+            <div id="sidebar" *ngIf="enseignant">
               <!-- <div id="sidebar" > -->
 
 
@@ -128,8 +132,11 @@
                           </div>
                         </ion-menu-toggle>
                       </div>
-                      <figure style="margin-top: 80%;"><img alt="person" src="../../../assets/img/logo.png" width="100%" />
-
+                      <figure class=" animate__animated animate__fadeInBottomLeft" style="margin-top: 80%;"><img alt="person" src="../../../assets/img/latest.png" width="100%" />
+                        <figcaption style="color: #ffffff;">
+                          Conctat/Mali <br>
+                          91-78-05-07
+                        </figcaption>
                       </figure>
                       </div>
 

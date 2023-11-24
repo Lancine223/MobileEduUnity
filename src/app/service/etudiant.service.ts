@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, catchError, map, tap } from 'rxjs';
 import { Observable } from 'rxjs';
+import { Etudiant } from '../model/etudiant';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class EtudiantService {
 
   update$ = this.updateEvent.asObservable();
 
-  
+
 
   private baseUrl = 'http://localhost:8080/etudiant/'; // Remplacez l'URL par celle de votre contrôleur Spring Boot
 
@@ -50,6 +51,10 @@ export class EtudiantService {
     body.set('motDePasse', motDePasse);
 
     return this.http.post(`${this.baseUrl}login`, body.toString(), { headers });
+  }
+
+  modifierEnseignant(etudiant: Etudiant): Observable<any> {
+    return this.http.put(`${this.baseUrl}modifier`, etudiant);
   }
 
   getEtudiantList():Observable<any> {

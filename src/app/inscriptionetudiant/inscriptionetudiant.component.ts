@@ -11,6 +11,7 @@ import { FiliereService } from '../service/filiere.service';
 import { NiveauService } from '../service/niveau.service';
 import { EtudiantService } from '../service/etudiant.service';
 import { Etudiant } from '../model/etudiant';
+import { AuthetudiantService } from '../service/authetudiant.service';
 
 @Component({
   selector: 'app-inscriptionetudiant',
@@ -31,7 +32,7 @@ export class InscriptionetudiantComponent  implements OnInit {
     // private snack : CoreService,
     private route: Router,
     private etudiantService: EtudiantService,
-     private authService: AuthService,
+     private authService: AuthetudiantService,
      private alertController: AlertController,
      private niveauService: NiveauService,
      private filieresService: FiliereService,
@@ -91,6 +92,8 @@ export class InscriptionetudiantComponent  implements OnInit {
            (response: any) => {
 
            this.route.navigate(['/student']);
+            localStorage.setItem('etudiant', JSON.stringify(response));
+            this.authService.triggerUpdate();
           this.afficherSucces();
           },
            (error:any) => {

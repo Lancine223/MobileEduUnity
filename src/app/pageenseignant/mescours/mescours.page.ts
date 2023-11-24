@@ -23,15 +23,15 @@ export class MescoursPage implements OnInit {
     private router: Router,
     private authService: AuthService,
     private alertController: AlertController) {
-      this.enseignant = this.authService.getEnseignantConnect();
+      this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
       this.getListeCoursByEnseignant();
      }
     //  src = 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf';
   ngOnInit() {
 
     this.coursService.update$.subscribe(() => {
+      this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
       this.getListeCoursByEnseignant();
-      console.log("cours :", this.listCours)
     });
 
   }

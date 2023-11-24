@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Enseignant } from 'src/app/model/enseignant';
@@ -30,9 +30,7 @@ export class AjoutercoursComponent  implements OnInit {
 
      ) {
       // this.niveaux[0]= this.niveau1;
-
-    this.enseignantRecup = this.authService.getEnseignantConnect();
-
+      this.enseignantRecup = JSON.parse(localStorage.getItem('enseignant')!);
     this.coursForm = this.formBuilder.group({
       idCours:'', // Si c'est une modification, initialisez avec l'ID existant
       titre: [ '', Validators.required],
@@ -45,7 +43,7 @@ export class AjoutercoursComponent  implements OnInit {
   ngOnInit(): void {
 
     this.authService.update$.subscribe(() => {
-      this.enseignantRecup = this.authService.getEnseignantConnect();
+      this.enseignantRecup = JSON.parse(localStorage.getItem('enseignant')!);
     });
   }
 

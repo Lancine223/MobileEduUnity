@@ -1,0 +1,35 @@
+
+
+
+
+
+<form [formGroup]="abonnerForm" (ngSubmit)="onSubmit()" >
+  <div id="container" style="margin-bottom: 20px;">
+
+    <div class="headeer">
+      <h2 style="color: #725787;">Abonnement</h2>
+      <img src="../../../assets/img/org.png" alt="">
+    </div>
+
+    <div class="form-controle">
+      <div class="dv">
+        <label>Telephone</label>
+
+        <input  type="number" placeholder=" Entrer votre numero " formControlName="telephone" required>
+      </div>
+      <div class="dv">
+        <label>Montant</label>
+
+        <input  type="number" placeholder=" Entrer le montant ici ! " formControlName="montant" required>
+      </div>
+
+      <button type="submit" id="a" style="color: #fff !important; background: #F68806;" [disabled]="!abonnerForm.valid">
+       <div class="icon"> <ion-icon src="../../../assets/icon/payement.svg"></ion-icon>  <span>Payer</span></div>
+      </button>
+      <button [mat-dialog-close]="true"  id="a" style="color: #fff !important; background: gray !important;">
+        Annuler
+      </button>
+    </div>
+  </div>
+  </form>
+

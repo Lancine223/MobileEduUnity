@@ -19,7 +19,9 @@ export class ConnexionenseignantComponent  implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private enseignantService: EnseignantService,
-    private alertController: AlertController,) { }
+    private alertController: AlertController,) {
+
+    }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -33,14 +35,11 @@ export class ConnexionenseignantComponent  implements OnInit {
       const { email, motDePasse } = this.loginForm.value;
 
       this.enseignantService.login(email, motDePasse).subscribe(
-        async response => {
-          // Handle successful login response
-          console.log('Login successful:', response);
-         this.router.navigate(['/teacher']);
-         const IdAdmincon = response.idEnseignant;
-         localStorage.setItem('idEnseignant', IdAdmincon);
-         this.autService.setEnseignantConnect(response);
+        async (response :any) => {
 
+         this.router.navigate(['/teacher']);
+         localStorage.setItem('enseignant', JSON.stringify(response));
+         this.autService.triggerUpdate();
         },
         async error => {
           // Handle login error

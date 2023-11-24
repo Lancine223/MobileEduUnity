@@ -28,8 +28,7 @@ export class AjoutervideoComponent  implements OnInit {
      ) {
       // this.niveaux[0]= this.niveau1;
 
-    this.enseignantRecup = this.authService.getEnseignantConnect();
-
+      this.enseignantRecup = JSON.parse(localStorage.getItem('enseignant')!);
     this.videosForm = this.formBuilder.group({
       idVideos:'', // Si c'est une modification, initialisez avec l'ID existant
       titre: [ '', Validators.required],
@@ -42,7 +41,7 @@ export class AjoutervideoComponent  implements OnInit {
   ngOnInit(): void {
 
     this.authService.update$.subscribe(() => {
-      this.enseignantRecup = this.authService.getEnseignantConnect();
+      this.enseignantRecup = JSON.parse(localStorage.getItem('enseignant')!);
     });
   }
 

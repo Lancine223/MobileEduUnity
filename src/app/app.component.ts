@@ -18,16 +18,18 @@ export class AppComponent {
     private authEtSerice: AuthetudiantService,
     private router: Router,
   ) {
+    this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
+    this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
 
 
   }
   ngOnInit(){
     this.authService.update$.subscribe(() => {
-      this.enseignant = this.authService.getEnseignantConnect();
+      this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     });
 
     this.authEtSerice.update$.subscribe(() => {
-      this.etudiant = this.authEtSerice.getEtudiantConnect();
+      this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
     });
   }
 

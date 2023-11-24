@@ -58,8 +58,8 @@ export class ModifierprofileenseignantComponent  implements OnInit {
           (response) => {
             this.enseigantForm.reset();
             this._dialogRef.close(true);
+            localStorage.setItem('enseignant', JSON.stringify(response));
             this.enseignantService.triggerUpdate();
-            this.authService.setEnseignantConnect(response);
             this.authService.triggerUpdate();
           },
           async (error) => {
