@@ -1,13 +1,46 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>list-video</ion-title>
+    <!-- <ion-title>mesdevoirsenseignant</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-icon size="large" name="arrow-undo-outline" style="color: #725787;" [routerLink]="['/lesprogrammes', idEnseignant]"></ion-icon>
+    </ion-buttons>
+    <ion-title style="color: #725787;"> Videos </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
-  <div class="about-img">
 
-  <video controls muted>
-      <source src="../../../assets/video/VOICI POURQUOI LES PÉCHÉS FONT ÉCHOUER TES PROJETS.mp4" type="video/mp4">
-  </video>
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">mesvideos</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <div class="main">
+
+    <div class="listuser animate__animated animate__fadeInUp">
+
+
+      <!--test-->
+      <ion-card *ngFor="let element of listVideos">
+
+
+        <video width="320" height="240" controls>
+          <source [src]="element.video" type="video/mp4">
+        </video>
+        <ion-card-content>
+          <div class="row"><h2>{{element.titre}}</h2>
+          </div>
+        </ion-card-content>
+
+      </ion-card>
+      <!--test-->
+
+
+    </div>
+
+    <div *ngIf="!listVideos">
+      <h1 style="text-align: center;">Aucune video disponible pour cet enseignant</h1>
+    </div>
+
+
   </div>
 </ion-content>

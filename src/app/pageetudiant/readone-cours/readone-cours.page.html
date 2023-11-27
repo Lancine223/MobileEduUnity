@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <ion-title>mesdevoirsenseignant</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-icon size="large" name="arrow-undo-outline" style="color: #725787;" [routerLink]="['/list-cours']"></ion-icon>
+    </ion-buttons>
+    <ion-title style="color: #725787;"> Document </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+  <div id="outerContainer">
+    <div class="pdf-container">
+      <pdf-viewer
+        [src]="document"
+        [rotation]="0"
+        [original-size]="false"
+        [show-all]="true"
+        [fit-to-page]="false"
+        [zoom]="1"
+        [zoom-scale]="'page-width'"
+        [stick-to-page]="false"
+        [render-text]="true"
+        [external-link-target]="'blank'"
+        [autoresize]="true"
+        [show-borders]="false"
+        style="width: 100%; height: 600px;"
+      ></pdf-viewer>
+    </div>
+  </div>
+  <!--test-->
+
+</div>
+
+
+</ion-content>

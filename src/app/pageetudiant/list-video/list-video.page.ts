@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Videos } from 'src/app/model/videos';
+import { VideosService } from 'src/app/service/videos.service';
 
 @Component({
   selector: 'app-list-video',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListVideoPage implements OnInit {
 
-  constructor() { }
+  idEnseignant: any;
+  listVideos: Videos[]|any;
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute,
+    private videosService: VideosService,) {
+    this.route.params.subscribe(params => {
+      const idEnseignant = params['idEnseignant'];
+      this.idEnseignant = idEnseignant;
+      this.getListeVideosByEnseignant();
+      // Afficher le PDF correspondant (utilisez une bibliothèque ou plugin pour afficher les PDF)
+    });
+   }
+
+
+   ngOnInit() {
+
+    this.videosService.update$.subscribe(() => {
+      this.getListeVideosByEnseignant();
+    });
+
   }
+
+  async getListeVideosByEnseignant() {
+
+        const listVideos = await this.videosService.getListeByEnseignant(this.idEnseignant).toPromise();
+        this.listVideos = listVideos;
+  }
+
 
 }

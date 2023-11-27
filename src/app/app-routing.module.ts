@@ -45,12 +45,13 @@ const routes: Routes = [
     path: 'mesdevoirs',
     loadChildren: () => import('./pageetudiant/mesdevoirs/mesdevoirs.module').then( m => m.MesdevoirsPageModule)
   },
+
   {
-    path: 'lesprogrammes',
+    path: 'lesprogrammes/:idEnseignant',
     loadChildren: () => import('./pageetudiant/lesprogrammes/lesprogrammes.module').then( m => m.LesprogrammesPageModule)
   },
   {
-    path: 'list-video',
+    path: 'list-video/:idEnseignant',
     loadChildren: () => import('./pageetudiant/list-video/list-video.module').then( m => m.ListVideoPageModule)
   },
 
@@ -94,6 +95,20 @@ const routes: Routes = [
     path: 'pdfviewerenseignant/:document',
     loadChildren: () => import('./pageenseignant/pdfviewerenseignant/pdfviewerenseignant.module').then( m => m.PdfviewerenseignantPageModule)
   },
+  {
+    path: 'abonnementpage',
+    loadChildren: () => import('./pageetudiant/abonnementpage/abonnementpage.module').then( m => m.AbonnementpagePageModule)
+  },
+  {
+    path: 'list-cours/:idEnseignant',
+    loadChildren: () => import('./pageetudiant/list-cours/list-cours.module').then( m => m.ListCoursPageModule)
+  },
+  {
+    path: 'readone-cours/:document',
+    loadChildren: () => import('./pageetudiant/readone-cours/readone-cours.module').then( m => m.ReadoneCoursPageModule)
+  },
+
+
 
 ];
 

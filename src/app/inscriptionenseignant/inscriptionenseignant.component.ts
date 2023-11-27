@@ -54,6 +54,7 @@ export class InscriptionenseignantComponent  implements OnInit {
       // nombreAbonnes: 0,
       diplome: ['', Validators.required],
       // acces: false,
+      apropos: null,
       email: ['', [Validators.required]],
       motDePasse: ['', Validators.required],
       niveau: ['', Validators.required],

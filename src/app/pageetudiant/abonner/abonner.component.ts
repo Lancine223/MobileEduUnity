@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Enseignant } from 'src/app/model/enseignant';
+import { AlertController } from '@ionic/angular';
 import { Etudiant } from 'src/app/model/etudiant';
 import { AbonnementService } from 'src/app/service/abonnement.service';
 import { AuthetudiantService } from 'src/app/service/authetudiant.service';
@@ -14,11 +15,12 @@ import { AuthetudiantService } from 'src/app/service/authetudiant.service';
 export class AbonnerComponent  implements OnInit {
   abonnerForm: FormGroup;
   etudiant: Etudiant|any;
-  alertController: any;
+  erromsg: String|any;
 
   constructor(
     private _dialogRef: MatDialogRef<AbonnerComponent>,
     private formBuilder: FormBuilder,
+    private alertController: AlertController,
     private authEtudiantService: AuthetudiantService,
     private abonnemenServ: AbonnementService,
     @Inject(MAT_DIALOG_DATA) public data: Enseignant | any
@@ -41,13 +43,11 @@ export class AbonnerComponent  implements OnInit {
     this.authEtudiantService.update$.subscribe(() => {
       this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
     });
-    console.log('etudiant value ', this.etudiant);
   }
 
   onSubmit() {
     if (this.abonnerForm.valid) {
       const donner = this.abonnerForm.value;
-      console.log("formulaire :", donner);
         // Update
         this.abonnemenServ.createBestAbonnement(this.etudiant.idEtudiant, donner).subscribe(
           (result) => {
@@ -56,17 +56,10 @@ export class AbonnerComponent  implements OnInit {
           this.abonnerForm.reset();
           this._dialogRef.close(true);
           this.abonnemenServ.triggerUpdate();
-          console.log(result);
         },
-        async (error) => {
-          const alert = await this.alertController.create({
-            header: 'Alert',
-            subHeader: 'Important message',
-            message: error.error.message,
-            buttons: ['OK'],
-          });
-
-          await alert.present();
+        (error) => {
+          // this.declencheAlert(error.error.message);
+          this.erromsg = error.error.message;
         }
         );
 
@@ -74,6 +67,18 @@ export class AbonnerComponent  implements OnInit {
     }
 
   }
+
+  async declencheAlert(message: string): Promise<void> {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Important message',
+      message: message,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
 
   creerAbonnement() {
     const idEtudiant = this.etudiant.idEtudiant; // Remplacez par l'ID réel

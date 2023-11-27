@@ -20,6 +20,17 @@ ion-content{
   animation: bounce; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 2s;
 }
+.active{
+  background: #ffffff;
+  border-radius: 10px;
+  color: #06A4D7;
+  padding-left: 10px;
+  animation: fadeOut; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s;
+}
+.active ion-icon{
+  color: #06A4D7!important;
+}
 .round{
   display: grid;
   justify-content: center;

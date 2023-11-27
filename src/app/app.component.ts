@@ -22,11 +22,13 @@ export class AppComponent {
     this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
 
 
+
   }
   ngOnInit(){
     this.authService.update$.subscribe(() => {
       this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     });
+
 
     this.authEtSerice.update$.subscribe(() => {
       this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);

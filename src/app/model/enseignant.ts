@@ -1,3 +1,4 @@
+import { Apropos } from "./apropos";
 import { Classe } from "./classe";
 import { Filiere } from "./filiere";
 import { Niveau } from "./niveau";
@@ -12,6 +13,7 @@ export interface Enseignant {
   diplome: string;
   acces: boolean;
   email: string;
+  apropos: Apropos;
   motDePasse: string;
   classe: number; // Ajout de la référence à la classe
   filiere: number; // Ajout de la référence à la filière

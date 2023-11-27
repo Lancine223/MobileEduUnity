@@ -22,14 +22,14 @@
       <ion-card>
         <ion-card-header>
           <ion-card-title>{{enseignant?.prenom}} {{enseignant?.nom}}</ion-card-title>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+
         </ion-card-header>
 
         <ion-card-content>
           {{apropos?.biographie}}
         </ion-card-content>
 
-        <ion-button (click)="openEditForm(apropos ,'600ms', '600ms')" ><ion-icon name="eye" ></ion-icon> Modifier</ion-button>
+        <ion-button (click)="openEditForm(apropos ,'600ms', '600ms')" style="width: 100%; text-align: center;"><ion-icon name="eye" ></ion-icon> Modifier</ion-button>
       </ion-card>
 
   </div>

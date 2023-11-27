@@ -60,6 +60,7 @@ export class InscriptionetudiantComponent  implements OnInit {
     this.loadNiveauList();
     this.loadFilieres();
     this.loadClasses();
+
     // this.loadFilieres(this.niveau1.idNiveau);
   }
 
@@ -76,23 +77,14 @@ export class InscriptionetudiantComponent  implements OnInit {
       // Obtenez l'élément input par son ID
             const monInput: HTMLInputElement | null = document.getElementById('repeter') as HTMLInputElement;
             const valeurInput: string = monInput.value;
-            // Vérifiez si l'élément a été trouvé
-              // Obtenez la valeur de l'élément
-
-
-              // Faites quelque chose avec la valeur
-              console.log('La valeur de mon input est :', valeurInput);
-
-
       if(valeurInput !== etudiant.motDePasse){
         this.motdepasseinval();
       }else{
 
         this.etudiantService.creerEtudiant(etudiant).subscribe(
-           (response: any) => {
+           response => {
 
-           this.route.navigate(['/student']);
-            localStorage.setItem('etudiant', JSON.stringify(response));
+            this.route.navigate(['home/loginEtudiant']);
             this.authService.triggerUpdate();
           this.afficherSucces();
           },

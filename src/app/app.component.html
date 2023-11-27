@@ -17,7 +17,7 @@
           <div class="main">
                   <div class="inside">
                     <ion-menu-toggle>
-                      <div [routerLink]="['/profile']" >
+                      <div routerLinkActive="active" [routerLink]="['/profile']" >
                         <ion-icon name="person-circle-outline"></ion-icon>
                         Profile
                       </div>
@@ -25,26 +25,26 @@
 
 <ion-menu-toggle>
 
-  <div [routerLink]="['/monbilletin']" >
+  <div routerLinkActive="active" [routerLink]="['/monbilletin']" >
     <ion-icon name="library-sharp"></ion-icon>
     Mon bulletin
   </div>
 </ion-menu-toggle>
                     <ion-menu-toggle>
-                      <div [routerLink]="['/mesenseignant']">
+                      <div routerLinkActive="active" [routerLink]="['/mesenseignant']">
                         <ion-icon name="school-sharp" ></ion-icon>
                         Enseignant
                       </div>
                     </ion-menu-toggle>
 
                     <ion-menu-toggle>
-                      <div [routerLink]="['/mesdevoirs']">
+                      <div routerLinkActive="active" [routerLink]="['/mesdevoirs']">
                         <ion-icon name="dice-sharp"></ion-icon>
                         Mes devoirs
                       </div>
                     </ion-menu-toggle>
                     <ion-menu-toggle>
-                    <div [routerLink]="['/tache']" >
+                    <div routerLinkActive="active" [routerLink]="['/tache']" >
                         <ion-icon name="newspaper-sharp"></ion-icon>
                         Tâche
                       </div>
@@ -52,8 +52,8 @@
                     <ion-menu-toggle>
                       <div style="margin-top: 40px;">
                          <!-- <button id="aaa" (click)="deconnexionEtudiant()"> <ion-icon name="close-circle-sharp" color="bright"></ion-icon> Deconnexion</button> -->
-                         <ion-button color="secondary"  (click)="deconnexionEtudiant()">
-                          <ion-icon slot="start" name="close-circle-outline" color="danger"></ion-icon>
+                         <ion-button color="blank"  (click)="deconnexionEtudiant()">
+                          <ion-icon size="large" slot="start" name="close-circle-outline" color="danger"></ion-icon>
                           Deconnexion
                         </ion-button>
                       </div>
@@ -88,7 +88,7 @@
               <div class="main">
                       <div class="inside">
                         <ion-menu-toggle>
-                          <div [routerLink]="['/profileenseignant']" >
+                          <div routerLinkActive="active" [routerLink]="['/profileenseignant']" >
                             <ion-icon name="person-circle-outline"></ion-icon>
                             Profile
                           </div>
@@ -96,26 +96,26 @@
 
     <ion-menu-toggle>
 
-      <div [routerLink]="['/apropos']" >
+      <div routerLinkActive="active" [routerLink]="['/apropos']" >
         <ion-icon name="library-sharp"></ion-icon>
         Apropos
       </div>
     </ion-menu-toggle>
     <ion-menu-toggle>
-      <div [routerLink]="['/programmeenseignant']" >
+      <div routerLinkActive="active"  [routerLink]="['/programmeenseignant']" >
           <ion-icon name="newspaper-sharp"></ion-icon>
           Programme
         </div>
       </ion-menu-toggle>
                         <ion-menu-toggle>
-                          <div [routerLink]="['/meseleve']">
+                          <div routerLinkActive="active" [routerLink]="['/meseleve']">
                             <ion-icon name="school-sharp" ></ion-icon>
                            Mes Etudiant
                           </div>
                         </ion-menu-toggle>
 
                         <ion-menu-toggle>
-                          <div [routerLink]="['/mesdevoirsenseignant']">
+                          <div routerLinkActive="active" [routerLink]="['/mesdevoirsenseignant']">
                             <ion-icon name="create"></ion-icon>
                             Mes devoirs
                           </div>
@@ -124,9 +124,9 @@
                         <ion-menu-toggle>
                           <div style="margin-top: 40px;"  >
                             <!-- <ion-icon name="close-circle-sharp" color="bright"></ion-icon> <ion-button (click)="deconnexionEnseig()">Deconnexion</ion-button> -->
-                            <ion-button color="secondary" (click)="deconnexionEnseig()">
+                            <ion-button color="blank" (click)="deconnexionEnseig()">
                               <!-- <ion-icon name="close-circle-outline"></ion-icon> -->
-                              <ion-icon slot="start" name="close-circle-outline" color="danger"></ion-icon>
+                              <ion-icon size="large" slot="start" name="close-circle-outline" color="danger"></ion-icon>
                               Deconnexion
                             </ion-button>
                           </div>

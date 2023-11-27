@@ -4,9 +4,14 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-
+.textdanger{
+  text-align: center;
+  margin: 15px;
+}
 
 #container strong {
   text-align: center;
@@ -72,8 +77,10 @@ label {
   display: grid;
 }
 
-.dv{
-  margin-top: 20px;
+.inside{
+  display: flex;
+  margin: 0 20px 0 20px;
+
 }
 input::placeholder{
   padding-left: 20px ;
@@ -86,8 +93,11 @@ input:focus{
 .icon{
   display: grid;
   justify-content: center;
-  gap: 5px;
-  align-items: center;
+
+}
+
+ion-button{
+  --background: orange;
 }
 
 
