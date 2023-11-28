@@ -1,0 +1,31 @@
+
+
+
+
+
+<form [formGroup]="tacheForm" (ngSubmit)="onSubmit()" >
+  <div id="container" style="margin-bottom: 20px;">
+
+    <div class="form-controle">
+      <div class="dv">
+        <label>Date</label>
+        <ion-input type="date" formControlName="datetache"></ion-input>
+        <!-- <input  type="date" placeholder=" " formControlName="datetache" required> -->
+      </div>
+
+      <div class="dv">
+        <label>Description</label>
+        <input  type="text" placeholder=" " formControlName="description" required>
+      </div>
+
+
+
+      <button type="submit" id="a" style="color: #fff !important;" [disabled]="!tacheForm.valid">{{data ? 'Modifier': 'Enregistrer'}}
+      </button>
+      <button [mat-dialog-close]="true"  id="a" style="color: #fff !important; background: gray !important;">
+        Annuler
+      </button>
+    </div>
+  </div>
+  </form>
+

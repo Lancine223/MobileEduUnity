@@ -45,6 +45,7 @@ export class ListCoursPage implements OnInit {
   onDocumentClick(document: string) {
     // Naviguer vers la page de visualisation du PDF avec le nom du document en tant que paramètre
     this.router.navigate(['/readone-cours', document]);
+    localStorage.setItem("idEn", this.idEnseignant);
   }
 
 

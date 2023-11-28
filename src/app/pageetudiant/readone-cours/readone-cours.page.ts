@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ReadoneCoursPage implements OnInit {
 
   document: any;
+  idEnseignant: any;
 
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -16,9 +17,12 @@ export class ReadoneCoursPage implements OnInit {
       this.document = document;
       // Afficher le PDF correspondant (utilisez une bibliothèque ou plugin pour afficher les PDF)
     });
+    this.idEnseignant = localStorage.getItem('idEn');
+    console.log("l' id en :",this.idEnseignant);
    }
 
   ngOnInit() {
+
   }
 
 }

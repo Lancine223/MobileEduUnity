@@ -9,8 +9,28 @@
 
 <ion-content [fullscreen]="true">
 
-  <div id="container">
 
-    <p>Tache </p>
+  <div id="container">
+    <ion-button (click)="OpenDialogAdd('600ms', '600ms')" >ajouter une billetin</ion-button>
+
+
+      <div *ngIf=" !tache ">
+        <h3 style="color: #ffffff ">Ici c’est votre espace personne que vous pouvez gerer vos tâches </h3>
+        <ion-img
+  src="../../../assets/img/todolist.png"
+  alt="photo bulletin"
+></ion-img>
+      </div>
+
+    <ion-list *ngIf=" tache ">
+        <ion-item *ngFor=" let todo of tache ">
+            <div>
+              <ion-label>{{ todo.description }}</ion-label>
+              <ion-label>{{ todo.datetache }}</ion-label>
+               </div>
+            <ion-checkbox></ion-checkbox>
+        </ion-item>
+    </ion-list>
+
   </div>
 </ion-content>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject, catchError, map, tap } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Etudiant } from '../model/etudiant';
+import { StatusEtudiant } from '../model/status-etudiant';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,25 @@ export class EtudiantService {
     body.set('motDePasse', motDePasse);
 
     return this.http.post(`${this.baseUrl}login`, body.toString(), { headers });
+  }
+
+  createstatusEtudiant(statusEtudiant: any, bulletin: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('statusEtudiant', JSON.stringify(statusEtudiant));
+    formData.append('bulletin', bulletin);
+
+    return this.http.post('http://localhost:8080/status/create', formData);
+  }
+
+  updateStatusEtudiant(id: number, statusEtudiant: StatusEtudiant, bulletin: File ): Observable<StatusEtudiant> {
+    const formData = new FormData();
+    formData.append('statusEtudiant', JSON.stringify(statusEtudiant));
+    formData.append('bulletin', bulletin);
+    return this.http.put<any>('http://localhost:8080/status/update/' + id, formData)
+  }
+
+  getBulletin(idEtudiant: number): Observable<StatusEtudiant> {
+    return this.http.get<StatusEtudiant>(`http://localhost:8080/status/read/${idEtudiant}`);
   }
 
   modifierEnseignant(etudiant: Etudiant): Observable<any> {

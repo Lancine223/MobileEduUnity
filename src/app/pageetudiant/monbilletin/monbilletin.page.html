@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button><ion-icon style="color: #725787; font-size: 100%;" name="list"></ion-icon></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mon Billetin </ion-title>
+    <ion-title>Mon Bulletin </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,6 +11,23 @@
 
   <div id="container">
 
-    <p>Mon Billetin </p>
+    <div style="color: #ffffff;"  *ngIf=" !bulletin " >
+      Vous n’avez pas encore ajouter votre billetin,
+      Merci de mètre à jour votre billetin apès vos examen / composition ou trimestre !</div>
+
+      <div *ngIf=" bulletin ">
+        <!-- <img [src]="bulletin.bulletin" alt="" width="100vw" height="100vh"> -->
+        <h2 style="color: #ffffff ">{{bulletin.examen}}</h2>
+        <ion-img
+  [src]="bulletin.bulletin"
+  alt="photo bulletin"
+></ion-img>
+
+
+      </div>
+
+      <ion-button *ngIf=" !bulletin " (click)="OpenDialogAdd('600ms', '600ms')" >ajouter une billetin</ion-button>
+      <ion-button *ngIf=" bulletin " (click)="openEditForm(bulletin ,'600ms', '600ms')" >Mettre à jour votre bulletin</ion-button>
+
   </div>
 </ion-content>

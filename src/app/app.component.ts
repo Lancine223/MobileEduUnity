@@ -22,9 +22,10 @@ export class AppComponent {
     this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
 
 
-
   }
   ngOnInit(){
+    // localStorage.clear();
+    // localStorage.clear;
     this.authService.update$.subscribe(() => {
       this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     });

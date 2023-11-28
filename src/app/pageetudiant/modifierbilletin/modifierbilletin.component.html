@@ -1,0 +1,38 @@
+
+
+
+
+
+<form [formGroup]="bulletinForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" >
+  <div id="container" style="margin-bottom: 20px;">
+
+    <div class="form-controle">
+      <div class="dv">
+        <label>Examen / composition</label>
+        <input type="text" placeholder="nom de l'examen " formControlName="examen">
+        <!-- <input  type="text" placeholder="Ex. commenter vous ici " formControlName="biographie" required> -->
+      </div>
+      <div class="parent-div">
+        <div class="btn-upload"  style="color: #725787 !important; font-weight: bold; padding: 10px; border-radius: 5px;" >importer le document </div>
+        <input type="file" name="upfile" formControlName="bulletin" multiple="multiple" accept="image/*"  (change)="ImageChange($event)" (change)="onFileChange($event)" required />
+      </div>
+      <div class="img">
+        <div *ngIf="bulletinSrc; else showEmptyContainer">
+          <img [src]="bulletinSrc" style="height: 180px; width: 180px" />
+      </div>
+      <ng-template #showEmptyContainer>
+          <div >
+            <p style="color: red">Acune photo choisis</p>
+          </div>
+      </ng-template>
+      </div>
+
+      <button type="submit" id="a" style="color: #fff !important;" [disabled]="!bulletinForm.valid">{{data ? 'Modifier': 'Enregistrer'}}
+      </button>
+      <button [mat-dialog-close]="true"  id="a" style="color: #fff !important; background: gray !important;">
+        Annuler
+      </button>
+    </div>
+  </div>
+  </form>
+
