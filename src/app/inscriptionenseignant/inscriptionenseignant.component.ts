@@ -103,7 +103,7 @@ export class InscriptionenseignantComponent  implements OnInit {
                 console.log('reussit');
                 const alert = await this.alertController.create({
                   header: 'Succes',
-                  message: error.error.text,
+                  message: "votre compte est créer merci de verifier votre mail !",
                   buttons: ['OK']
                 });
                 await alert.present();

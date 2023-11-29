@@ -25,12 +25,14 @@ import { ModifierprofileenseignantComponent } from './pageenseignant/modifierpro
 import { AbonnerComponent } from './pageetudiant/abonner/abonner.component';
 import { ModifierprofileetudiantComponent } from './pageetudiant/modifierprofileetudiant/modifierprofileetudiant.component';
 import { ModifiertacheComponent } from './pageetudiant/modifiertache/modifiertache.component';
+import { DetailEnseignantComponent } from './pageetudiant/detail-enseignant/detail-enseignant.component';
 // import { MescoursPage } from './pageenseignant/mescours/mescours.page';
 
 @NgModule({
   declarations: [AppComponent,QuizexempleComponent,
      DemarrageComponent,
      ModifierbilletinComponent,
+     DetailEnseignantComponent,
      ModifierprofileetudiantComponent,
      ModifierprofileenseignantComponent,
      ModifiertacheComponent,

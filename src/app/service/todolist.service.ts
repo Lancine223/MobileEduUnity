@@ -21,7 +21,7 @@ export class TodolistService {
   }
 
   ajouterTache(todoList: TodoList): Observable<any> {
-    return this.http.post(`${this.baseUrl}/ajouter`, todoList);
+    return this.http.post(`${this.baseUrl}/add`, todoList);
   }
 
   modifierTache(todoList: TodoList): Observable<any> {

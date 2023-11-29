@@ -7,6 +7,7 @@ import { AuthetudiantService } from 'src/app/service/authetudiant.service';
 import { EtudiantService } from 'src/app/service/etudiant.service';
 import { ModifiertacheComponent } from '../modifiertache/modifiertache.component';
 import { TodolistService } from 'src/app/service/todolist.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tache',
@@ -15,13 +16,7 @@ import { TodolistService } from 'src/app/service/todolist.service';
 })
 export class TachePage implements OnInit {
 
-  // public folder!: string;
-  // private activatedRoute = inject(ActivatedRoute);
-  // constructor() {}
 
-  // ngOnInit() {
-  //   this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
-  //}
 
 
   tache: TodoList[]|any ;
@@ -30,7 +25,8 @@ export class TachePage implements OnInit {
   constructor(
     private authService: AuthetudiantService,
     private todoService: TodolistService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private alertController: AlertController
   ) {
     this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
     this.chargerTache();
@@ -54,6 +50,50 @@ export class TachePage implements OnInit {
 
     });
   }
+
+
+
+  async presentAlert(todol: any) {
+    const alert = await this.alertController.create({
+      header: 'Voulez-vous supprimer cette tache ?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Suppression annulée');
+          },
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            this.deleteTodo(todol);
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
+  deleteTodo(todol: any) {
+    this.todoService.supprimerTache(todol).subscribe(
+      (response) => {
+        // Le cours a été supprimé avec succès, vous pouvez mettre à jour la liste des cours si nécessaire
+
+        this.todoService.triggerUpdate();
+      },
+      (error) => {
+        console.error('Erreur lors de la suppression du todo :', error);
+
+        this.todoService.triggerUpdate();
+      }
+    );
+
+    this.todoService.triggerUpdate();
+  }
+
+
 
   OpenDialogAdd(enterAnimationDuration: string, exitAnimationDuration: string){
     this._dialog.open(ModifiertacheComponent,{enterAnimationDuration,

@@ -9,7 +9,7 @@
     <div class="form-controle">
       <div class="dv">
         <label>Date</label>
-        <ion-input type="date" formControlName="datetache"></ion-input>
+        <ion-input type="date" formControlName="datetache" [min]="dateMin | date:'yyyy-MM-dd' "></ion-input>
         <!-- <input  type="date" placeholder=" " formControlName="datetache" required> -->
       </div>
 
@@ -17,8 +17,6 @@
         <label>Description</label>
         <input  type="text" placeholder=" " formControlName="description" required>
       </div>
-
-
 
       <button type="submit" id="a" style="color: #fff !important;" [disabled]="!tacheForm.valid">{{data ? 'Modifier': 'Enregistrer'}}
       </button>

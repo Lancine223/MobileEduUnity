@@ -17,6 +17,7 @@ export class ModifiertacheComponent  implements OnInit {
   dateAujourd: any;
   etudiant: Etudiant|undefined;
   alertController: any;
+  dateMin: any;
 
   constructor(
     private _dialogRef: MatDialogRef<ModifiertacheComponent>,
@@ -41,6 +42,7 @@ export class ModifiertacheComponent  implements OnInit {
     this.authService.update$.subscribe(() => {
       this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
     });
+    this.dateMin = new Date;
   }
 
   onSubmit() {
@@ -96,5 +98,14 @@ export class ModifiertacheComponent  implements OnInit {
 
   }
 
+  // async datenotValid(){
+  //   const msg = "Cette est dejà passé ! ";
+  //           const alert = await this.alertController.create({
+  //             header: 'Erreur de validation',
+  //             message: msg,
+  //             buttons: ['OK']
+  //           });
+  //           await alert.present();
+  // }
 
 }

@@ -7,6 +7,7 @@ import { EnseignantService } from 'src/app/service/enseignant.service';
 import { AbonnerComponent } from '../abonner/abonner.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DetailEnseignantComponent } from '../detail-enseignant/detail-enseignant.component';
 
 @Component({
   selector: 'app-mesenseignant',
@@ -44,6 +45,13 @@ export class MesenseignantPage implements OnInit {
   onDocumentClick(idEnseignant: number) {
     // Naviguer vers la page de visualisation du PDF avec le nom du document en tant que paramètre
     this.router.navigate(['/lesprogrammes', idEnseignant]);
+  }
+
+  openDetailEnsiegnant(data: number, enterAnimationDuration: string, exitAnimationDuration: string) {
+    const dialogRef = this._dialog.open(DetailEnseignantComponent,  {
+      data, enterAnimationDuration,
+        exitAnimationDuration
+    });
   }
 
 

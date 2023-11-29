@@ -10,8 +10,27 @@
 <ion-content [fullscreen]="true">
 
 
+  <ion-card >
+    <ion-button style="width: 80px; height: 80px; border-radius: 100% !important; margin-top: -30px !important; margin-left: -10px !important" (click)="OpenDialogAdd('600ms', '600ms')" > <ion-icon style="margin-top: 20px;" size="large" name="add-circle" color="light"></ion-icon> </ion-button>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor=" let todo of tache ">
+          <ion-thumbnail slot="start">
+            <ion-checkbox justify="space-between"></ion-checkbox>
+          </ion-thumbnail>
+         <div><p> <ion-label>{{ todo.description }}</ion-label></p>
+            <p>{{ todo.datetache | date:'dd/MM/yyyy' }}</p>
+        </div>
+          <ion-thumbnail slot="end">
+            <ion-button (click)="presentAlert(todo)" color="blank"><ion-icon name="trash" style="color: red;" size="large" > </ion-icon> </ion-button>
+          </ion-thumbnail>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
   <div id="container">
-    <ion-button (click)="OpenDialogAdd('600ms', '600ms')" >ajouter une billetin</ion-button>
+
 
 
       <div *ngIf=" !tache ">
@@ -22,15 +41,12 @@
 ></ion-img>
       </div>
 
-    <ion-list *ngIf=" tache ">
-        <ion-item *ngFor=" let todo of tache ">
-            <div>
-              <ion-label>{{ todo.description }}</ion-label>
-              <ion-label>{{ todo.datetache }}</ion-label>
-               </div>
-            <ion-checkbox></ion-checkbox>
-        </ion-item>
-    </ion-list>
+
+
+
+
 
   </div>
+
+
 </ion-content>

@@ -1,0 +1,12 @@
+<div id="container" style="margin-bottom: 20px;">
+
+  <div *ngIf=" apropos != undefined ">
+    <h2   style="text-align: center;">
+      {{apropos?.biographie}}
+    </h2>
+
+  </div>
+
+  <div  *ngIf=" apropos == undefined "><h2> Désoler</h2></div>
+
+</div>
