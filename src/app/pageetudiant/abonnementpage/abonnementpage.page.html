@@ -24,16 +24,15 @@
 
         <div>
           <h2>{{enseig.prenom}} {{enseig.nom}}</h2>
+          <ion-icon (click)="openDetailEnsiegnant(enseig.idEnseignant, '600ms', '600ms')" size="large" style="color: #725787; font-size: 100%;" name="eye-outline"></ion-icon>
           <h3>{{enseig.classe.nom}}</h3>
           <h5 *ngIf="enseig.apropos != null">{{enseig.apropos.biographie}}</h5>
         </div>
 
         <ion-card-header>
-          <ion-card-title style="color: #ffffff;">
-            <!-- <button style="color: #e8a60a; font-size: large; font-weight: bold; background: none; " [routerLink]="['/lesprogrammes']">Voir</button> -->
-            <button style="font-size: large; font-weight: bold; background: none "  (click)="openEditForm(enseig ,'600ms', '600ms')">Abonner {{enseig.classe.montant}} F</button>
-          </ion-card-title>
+          <ion-button style=" color: #ffffff; "  (click)="openEditForm(enseig ,'600ms', '600ms')"> <ion-icon src="../../../assets/icon/payement.svg" style=" font-size: 30px;"></ion-icon> Abonner {{enseig.classe.montant}} F</ion-button>
         </ion-card-header>
+
       </ion-card>
 
 

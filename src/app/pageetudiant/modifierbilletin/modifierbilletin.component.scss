@@ -106,6 +106,20 @@ a{
   font-size: 90px;
 }
 
+ion-toolbar{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+  // box-shadow: 2px 2px 18px rgba(255, 0, 255, 0.18);
+}
+
+ion-header{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+
+}
+
 .btn-upload {
  background-color: white;
  border-radius: 10px;

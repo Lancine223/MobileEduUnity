@@ -107,6 +107,15 @@ const routes: Routes = [
     path: 'readone-cours/:document',
     loadChildren: () => import('./pageetudiant/readone-cours/readone-cours.module').then( m => m.ReadoneCoursPageModule)
   },
+  {
+    path: 'infos-etudiantdiant/:idEtudiant',
+    loadChildren: () => import('./pageenseignant/infos-etudiantdiant/infos-etudiantdiant.module').then( m => m.InfosEtudiantdiantPageModule)
+  },  {
+    path: 'discuterforumenseignant',
+    loadChildren: () => import('./pageenseignant/discuterforumenseignant/discuterforumenseignant.module').then( m => m.DiscuterforumenseignantPageModule)
+  },
+
+
 
 
 

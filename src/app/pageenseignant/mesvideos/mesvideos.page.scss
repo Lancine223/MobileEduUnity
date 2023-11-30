@@ -35,6 +35,20 @@ video{
   background-color: #005B2F;
   border-radius: 0px  0px 200px 0px;
 }
+ion-toolbar{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+  // box-shadow: 2px 2px 18px rgba(255, 0, 255, 0.18);
+}
+
+ion-header{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+
+}
+
 .iconitem{
   display: grid;
   grid-template-columns: repeat(3, 1fr);

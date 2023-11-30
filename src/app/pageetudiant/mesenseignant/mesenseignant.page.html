@@ -29,21 +29,16 @@
         </div>
 
         <ion-card-header>
-          <ion-card-title style="color: #ffffff;">
-            <button style="color: #e8a60a; font-size: large; font-weight: bold; background: none; " (click)="onDocumentClick(abonnement.enseignant.idEnseignant)">Voir</button>
-          </ion-card-title>
+          <!-- <ion-card-title style="color: #ffffff;"> -->
+            <ion-button style="color: #ffffff; font-size: large; font-weight: bold; background: none; " (click)="onDocumentClick(abonnement.enseignant.idEnseignant)"> <ion-icon name="library-sharp" style=" font-size: 30px;"></ion-icon> Voir ses programmes</ion-button>
+          <!-- </ion-card-title> -->
         </ion-card-header>
       </ion-card>
 
       <!---->
       <ion-card style="border-radius: 25px; " id="card">
-       <img src="../../../assets/img/abonnerplus.jpg" alt="">
-
-        <ion-card-header>
-          <ion-card-title style="color: #ffffff;">
-            <button style="color: #ffffff; font-size: large; font-weight: bold; background: none; " [routerLink]="['/abonnementpage']">Abonner plus</button>
-          </ion-card-title>
-        </ion-card-header>
+       <img src="../../../assets/img/abonner.jpg" alt="" height="100vh" width="100vw">
+        <h1 style="color: #725787; font-weight: bold; " [routerLink]="['/abonnementpage']">Abonner plus</h1>
       </ion-card>
       <!---->
 
@@ -56,13 +51,13 @@
 
     <div *ngIf="!abonnements">
       <h2 style="text-align: center;">Aucun enseignant disponible pour la classe {{etudiantConnect.classe.nom}}</h2>
-      <p style="text-align: center;">Merci de vous patienter !2</p>
+      <p style="text-align: center;">Merci de vous patienter !</p>
       <img src="../../../assets/img/abonner.jpg" alt="" width="100%" height="100%">
 
       <ion-card style="border-radius: 25px; " id="card">
          <ion-card-header>
            <ion-card-title style="color: #ffffff;">
-             <button style="color: #ffffff; font-size: large; font-weight: bold; background: none; " [routerLink]="['/abonnementpage']"><ion-icon name="wallet-outline"></ion-icon> Abonner</button>
+             <button style="color: #ffffff; font-size: large; font-weight: bold; background: none; " [routerLink]="['/abonnementpage']"><ion-icon name="wallet-outline"></ion-icon>Abonner</button>
            </ion-card-title>
          </ion-card-header>
        </ion-card>

@@ -23,6 +23,11 @@ export class AbonnementService {
     return this.http.get(url);
   }
 
+  getListeAbonnementByEnseignant(idEnseignant: number): Observable<any> {
+    const url = `${this.baseUrl}/read/${idEnseignant}`;
+    return this.http.get(url);
+  }
+
   createBestAbonnement(idEtudiant: number, abonnement: any): Observable<any> {
     const url = `${this.baseUrl}/best/${idEtudiant}`;
     return this.http.post(url, abonnement);

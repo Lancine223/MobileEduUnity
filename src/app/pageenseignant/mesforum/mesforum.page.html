@@ -7,8 +7,40 @@
     <ion-title style="color: #725787;"> Mes Forum </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
+  <div class="main">
+    <h2 style="text-align: center;"> Les forum</h2>
 
-  
+    <ion-button shape="round" routerLink="deuxieme" (click)="OpenDialogAdd('600ms', '600ms')">
+      <ion-icon name="add-circle" style="margin-right: 10px;"></ion-icon>
+      Ajouter
+    </ion-button>
+
+    <div class="listuser animate__animated animate__fadeInUp">
+      <ion-card color="light" *ngFor="let element of listForum">
+        <ion-card-header>
+          <ion-card-subtitle>{{element.titre}}</ion-card-subtitle>
+        </ion-card-header>
+        <h2> {{ element.dateForum | date:'dd/MM/yyyy' }}</h2>
+        <div class="iconitem">
+          <ion-button fill="clear"  style="color: #ffffff"><ion-icon name="eye" ></ion-icon> Lancer </ion-button>
+          <ion-button fill="clear" (click)="openEditForm(element, '600ms', '600ms')"  style="color: #ffffff"><ion-icon name="edit" ></ion-icon> modifier </ion-button>
+          <ion-button color="danger"   (click)="presentAlert(element)" style="color: #ffffff">Supprimer <ion-icon name="trash" ></ion-icon></ion-button>
+        </div>
+      </ion-card>
+
+
+
+
+
+
+  </div>
+
+  <div *ngIf=" !listForum " style="text-align: center; margin: 20px;">
+    <h2>Vous n'avez pas encore creer aucun forum !</h2>
+    <h2>Merci de créer des forum pour discuter avec vos elèves!</h2>
+
+  </div>
+
+  </div>
 </ion-content>

@@ -98,14 +98,6 @@ export class ModifiertacheComponent  implements OnInit {
 
   }
 
-  // async datenotValid(){
-  //   const msg = "Cette est dejà passé ! ";
-  //           const alert = await this.alertController.create({
-  //             header: 'Erreur de validation',
-  //             message: msg,
-  //             buttons: ['OK']
-  //           });
-  //           await alert.present();
-  // }
+ 
 
 }

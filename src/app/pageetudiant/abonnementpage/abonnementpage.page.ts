@@ -6,6 +6,7 @@ import { AbonnementService } from 'src/app/service/abonnement.service';
 import { AuthetudiantService } from 'src/app/service/authetudiant.service';
 import { EnseignantService } from 'src/app/service/enseignant.service';
 import { AbonnerComponent } from '../abonner/abonner.component';
+import { DetailEnseignantComponent } from '../detail-enseignant/detail-enseignant.component';
 
 @Component({
   selector: 'app-abonnementpage',
@@ -41,6 +42,13 @@ export class AbonnementpagePage implements OnInit {
             this.enseignantService.getEnseignantListByClasse(idClasse).subscribe(enseg => {
             this.enseignants = enseg;
             });
+  }
+
+  openDetailEnsiegnant(data: number, enterAnimationDuration: string, exitAnimationDuration: string) {
+    const dialogRef = this._dialog.open(DetailEnseignantComponent,  {
+      data, enterAnimationDuration,
+        exitAnimationDuration
+    });
   }
 
   // Exemple d'utilisation

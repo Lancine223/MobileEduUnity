@@ -1,12 +1,23 @@
-<div id="container" style="margin-bottom: 20px;">
 
-  <div *ngIf=" apropos != undefined ">
-    <h2   style="text-align: center;">
-      {{apropos?.biographie}}
-    </h2>
 
+  <div id="container" style="margin-bottom: 20px;">
+
+
+    <div class="form-controle">
+      <div class="dv">
+        <div *ngIf=" apropos != undefined ">
+          <h2   style="text-align: center;">
+            {{apropos?.biographie}}
+          </h2>
+
+        </div>
+
+        <div  *ngIf=" apropos == undefined "><h2> Désolé ! cet enseignant n'a pas encore ajouter plus de details pour son profile</h2></div>
+
+
+      </div>
+
+    </div>
   </div>
 
-  <div  *ngIf=" apropos == undefined "><h2> Désoler</h2></div>
 
-</div>

@@ -26,11 +26,14 @@ import { AbonnerComponent } from './pageetudiant/abonner/abonner.component';
 import { ModifierprofileetudiantComponent } from './pageetudiant/modifierprofileetudiant/modifierprofileetudiant.component';
 import { ModifiertacheComponent } from './pageetudiant/modifiertache/modifiertache.component';
 import { DetailEnseignantComponent } from './pageetudiant/detail-enseignant/detail-enseignant.component';
+import { AddeditforumComponent } from './pageenseignant/addeditforum/addeditforum.component';
+import { AddeditdiscussionenseignantComponent } from './pageenseignant/addeditdiscussionenseignant/addeditdiscussionenseignant.component';
 // import { MescoursPage } from './pageenseignant/mescours/mescours.page';
 
 @NgModule({
   declarations: [AppComponent,QuizexempleComponent,
      DemarrageComponent,
+     AddeditdiscussionenseignantComponent,
      ModifierbilletinComponent,
      DetailEnseignantComponent,
      ModifierprofileetudiantComponent,
@@ -39,6 +42,7 @@ import { DetailEnseignantComponent } from './pageetudiant/detail-enseignant/deta
      AbonnerComponent,
      ConnexionenseignantComponent,
      AjoutercoursComponent,
+     AddeditforumComponent,
      AjoutervideoComponent,
       AjouteraproposComponent,
       ConnexionetudiantComponent,

@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon size="large" name="arrow-undo-outline" style="color: #725787;" [routerLink]="['/meseleve']"></ion-icon>
+    </ion-buttons>
+    <ion-title>Mon Bulletin </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+
+    <div style="color: #ffffff;"  *ngIf=" !bulletin " >
+    Desolé cet étudiant n'a pas encore ajouter son billetin!</div>
+
+      <div *ngIf=" bulletin ">
+        <!-- <img [src]="bulletin.bulletin" alt="" width="100vw" height="100vh"> -->
+        <h2 style="color: #ffffff ">{{bulletin.examen}}</h2>
+        <ion-img
+  [src]="bulletin.bulletin"
+  alt="photo bulletin"
+></ion-img>
+
+
+      </div>
+
+
+
+  </div>
+</ion-content>

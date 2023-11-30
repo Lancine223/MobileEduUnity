@@ -9,6 +9,20 @@ section .option_list .option:hover{
   border: 1px solid #b8daff;
 }
 
+ion-toolbar{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+  // box-shadow: 2px 2px 18px rgba(255, 0, 255, 0.18);
+}
+
+ion-header{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+
+}
+
 section .option_list .option.correct{
   color: #155724;
   background: #d4edda;

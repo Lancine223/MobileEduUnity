@@ -25,7 +25,6 @@ export class AppComponent {
   }
   ngOnInit(){
     // localStorage.clear();
-    // localStorage.clear;
     this.authService.update$.subscribe(() => {
       this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     });
