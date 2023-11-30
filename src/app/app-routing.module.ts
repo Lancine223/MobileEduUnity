@@ -110,8 +110,9 @@ const routes: Routes = [
   {
     path: 'infos-etudiantdiant/:idEtudiant',
     loadChildren: () => import('./pageenseignant/infos-etudiantdiant/infos-etudiantdiant.module').then( m => m.InfosEtudiantdiantPageModule)
-  },  {
-    path: 'discuterforumenseignant',
+  },
+  {
+    path: 'discuterforumenseignant/:id',
     loadChildren: () => import('./pageenseignant/discuterforumenseignant/discuterforumenseignant.module').then( m => m.DiscuterforumenseignantPageModule)
   },
 

@@ -55,10 +55,6 @@ export class MesforumPage implements OnInit {
   }
 
 
- 
-
-
-
 
   async presentAlert(forum: any) {
     const alert = await this.alertController.create({
@@ -87,20 +83,18 @@ export class MesforumPage implements OnInit {
     this.forumService.supprimerForum(forum).subscribe(
       (response) => {
         // Le cours a été supprimé avec succès, vous pouvez mettre à jour la liste des cours si nécessaire
-        this.getListeForumByEnseignant();
         this.forumService.triggerUpdate();
+        this.getListeForumByEnseignant();
       },
       (error) => {
         console.error('Erreur lors de la suppression du cours :', error);
-        this.getListeForumByEnseignant();
         this.forumService.triggerUpdate();
+        this.getListeForumByEnseignant();
       }
     );
-    this.getListeForumByEnseignant();
     this.forumService.triggerUpdate();
+    this.getListeForumByEnseignant();
   }
-
-
 
   OpenDialogAdd(enterAnimationDuration: string, exitAnimationDuration: string){
     this._dialog.open(AddeditforumComponent,{enterAnimationDuration,
@@ -113,5 +107,7 @@ export class MesforumPage implements OnInit {
         exitAnimationDuration
     });
   }
+
+  
 
 }

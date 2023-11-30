@@ -28,8 +28,8 @@ export class AddeditforumComponent  implements OnInit {
     this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
     this.forumForm = this.formBuilder.group({
       idForum: this.data ? this.data.Forum : '', // Si c'est une modification, initialisez avec l'ID existant
-      titre: [this.data ? this.data.datetache : '', Validators.required],
-      description: [this.data ? this.data.description : '', Validators.required],
+      dateForum: [this.data ? this.data.dateForum : '', Validators.required],
+      titre: [this.data ? this.data.titre : '', Validators.required],
       enseignant: this.enseignant, //
 
 

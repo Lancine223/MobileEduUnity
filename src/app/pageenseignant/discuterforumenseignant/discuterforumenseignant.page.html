@@ -1,13 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>discuterforumenseignant</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">discuterforumenseignant</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-card color="light">
+  <ion-card-content>
+
+    {{forum?.titre}}
+    <h4>Par Mr: {{forum?.enseignant.prenom}} {{forum?.enseignant.nom}}</h4>
+    <h4 style="margin-left: 10px;"> {{ forum?.dateForum | date:'dd/MM/yyyy' }}</h4>
+  </ion-card-content>
+</ion-card>
+
+<ion-content >
+    <div class="listuser animate__animated animate__fadeInUp" *ngIf=" discussions ">
+      <ion-card color="light" *ngFor="let element of discussions ">
+        <ion-card-header>
+          <ion-card-subtitle>{{element?.message}}</ion-card-subtitle>
+        </ion-card-header>
+        <h2 style="margin-left: 10px;"> {{ element?.enseignant.prenom }} {{ element?.enseignant.nom }}</h2>
+        <h2 style="margin-left: 10px;"> {{ element?.etudiant.prenom }} {{ element?.etudiant.nom }}</h2>
+        <div class="iconitem">
+          <ion-button fill="outline" size="large" color="primary"  style="color: #ffffff"><ion-icon name="chatbubble-ellipses-outline"></ion-icon> </ion-button>
+          <ion-button color="danger" size="large" fill="outline"   (click)="presentAlert(element)" style="color: #ffffff"><ion-icon name="trash" ></ion-icon></ion-button>
+        </div>
+      </ion-card>
+  </div>
+
 </ion-content>
+
+<div class="principe">
+  <form [formGroup]="messageForm" (ngSubmit)="onSubmit()" >
+    <div class="bottom">
+      <!-- <div class="dv"> -->
+        <input  type="text" placeholder=" " formControlName="message" required>
+      <!-- </div> -->
+      <ion-button type="submit"  size="large" color="blank" [disabled]="!messageForm.valid" style="color: #725787; width: 100px;" ><ion-icon size="large" name="paper-plane-outline"></ion-icon></ion-button>
+    </div>
+  </form>
+
+
+</div>

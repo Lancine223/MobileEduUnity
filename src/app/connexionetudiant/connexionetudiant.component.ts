@@ -49,7 +49,6 @@ export class ConnexionetudiantComponent  implements OnInit {
         }
       );
 
-
     }else{
       const alert = await this.alertController.create({
         header: 'Message',

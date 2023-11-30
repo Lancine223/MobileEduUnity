@@ -21,19 +21,13 @@
         <ion-card-header>
           <ion-card-subtitle>{{element.titre}}</ion-card-subtitle>
         </ion-card-header>
-        <h2> {{ element.dateForum | date:'dd/MM/yyyy' }}</h2>
+        <h2 style="margin-left: 10px;"> {{ element.dateForum | date:'dd/MM/yyyy' }}</h2>
         <div class="iconitem">
-          <ion-button fill="clear"  style="color: #ffffff"><ion-icon name="eye" ></ion-icon> Lancer </ion-button>
-          <ion-button fill="clear" (click)="openEditForm(element, '600ms', '600ms')"  style="color: #ffffff"><ion-icon name="edit" ></ion-icon> modifier </ion-button>
-          <ion-button color="danger"   (click)="presentAlert(element)" style="color: #ffffff">Supprimer <ion-icon name="trash" ></ion-icon></ion-button>
+          <ion-button [routerLink]="['/discuterforumenseignant', element.idForum]" fill="outline" size="large" color="primary"  style="color: #ffffff"><ion-icon name="chatbubble-ellipses-outline" ></ion-icon> </ion-button>
+          <ion-button fill="outline" size="large" color="primary" (click)="openEditForm(element, '600ms', '600ms')"  style="color: #ffffff"><ion-icon slot="end" name="create"></ion-icon> </ion-button>
+          <ion-button color="danger" size="large" fill="outline"   (click)="presentAlert(element)" style="color: #ffffff"><ion-icon name="trash" ></ion-icon></ion-button>
         </div>
       </ion-card>
-
-
-
-
-
-
   </div>
 
   <div *ngIf=" !listForum " style="text-align: center; margin: 20px;">
