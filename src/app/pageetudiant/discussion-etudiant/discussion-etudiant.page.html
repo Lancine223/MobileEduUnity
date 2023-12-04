@@ -1,0 +1,80 @@
+
+
+<ion-toolbar color="light">
+  <!-- <ion-title>mesdevoirsenseignant</ion-title> -->
+  <ion-buttons slot="start">
+    <ion-icon size="large" name="arrow-undo-outline" style="color: #725787;" [routerLink]="['/list-forum' , idEnseignant]"></ion-icon>
+  </ion-buttons>
+  <ion-title style="color: #725787;"> Discussion </ion-title>
+</ion-toolbar>
+<ion-card style="background: #725787; color: #ffffff;">
+  <ion-card-content>
+
+    {{forum?.titre}}
+    <h4>Par Mr: {{forum?.enseignant.prenom}} {{forum?.enseignant.nom}}</h4>
+    <h4 style="margin-left: 10px;"> {{ forum?.dateForum | date:'dd/MM/yyyy' }}</h4>
+  </ion-card-content>
+</ion-card>
+
+<ion-content>
+    <div class="listuser animate__animated animate__fadeInUp" >
+
+
+          <ion-list
+            lines="none"
+            *ngIf=" discussions ">
+            <ion-item-group class="chats-group" *ngFor="let element of discussions ">
+
+              <ion-item
+              lines="none"
+              [class]=" element?.etudiant != etudiant && element?.enseignant == null   ? 'user' : 'sender' "
+               >
+               <ion-label
+               [slot]=" element?.etudiant != etudiant && element?.enseignant == null ?  'start' : 'end' "
+               class="ion-text-wrap"
+               >
+               <ion-text>{{element?.message}}</ion-text>
+               <ion-note>
+                <ion-icon style="color: #725787 !important;" size="small" *ngIf=" element?.etudiant  && element?.etudiant == etudiant " name="checkmark-done-outline"></ion-icon>
+                <small style="color: #725787 !important;" *ngIf=" element?.etudiant != null && element?.etudiant != etudiant  && element?.enseignant == null ">{{ element?.etudiant.prenom }} {{ element?.etudiant.nom }}</small>
+                <small style="color: #725787 !important;" *ngIf=" element?.enseignant "> {{ element?.enseignant.prenom }} {{ element?.enseignant.nom }}</small>
+               </ion-note>
+
+               </ion-label>
+
+              </ion-item>
+
+            </ion-item-group>
+          </ion-list>
+
+
+
+
+  </div>
+
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    <form [formGroup]="messageForm2" (ngSubmit)="onSubmit()" >
+      <ion-textarea
+      slot="start"
+      autoGrow
+      placeholder="Envoyer un message"
+      class="ion-text-center"
+      formControlName="message"
+      name="message"
+      id="message"
+      >
+      </ion-textarea>
+      <ion-button [disabled]=" !messageForm2.valid " type="submit" color="blank" size="large">
+        <ion-icon  style="color: #725787 !important;" name="send"></ion-icon>
+      </ion-button>
+
+    </form>
+
+  </ion-toolbar>
+</ion-footer>
+

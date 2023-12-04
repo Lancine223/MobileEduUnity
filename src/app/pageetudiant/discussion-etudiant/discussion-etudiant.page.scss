@@ -124,7 +124,8 @@ ion-content{
   ion-label {
 
 
-    margin-left: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
   background-color: rgb(239, 238, 238);
   border-radius: 200px  200px  200px -0px;
   color: black;
@@ -133,7 +134,7 @@ ion-content{
     width: 72px !important;
     }
   }
-    lon-note {
+    ion-note {
     small {
     margin-right: 2px;
     line-height: 16px;
@@ -161,7 +162,8 @@ ion-content{
   }
   ion-label {
   margin-left: 8px;
-  background-color: rgb(253, 253, 225);
+  margin-right: 8px;
+  background-color: rgb(253, 253, 233);
   border-radius: 200px  200px  -0px 200px;
   color: black;
   ion-text{
@@ -169,9 +171,9 @@ ion-content{
   width: 72px !important;
   }
 }
-  lon-note {
+  ion-note {
   small {
-  margin-right: 2px;
+  margin-left: 2px;
   line-height: 16px;
   color: var(-ion-color-dark);
   }

@@ -15,13 +15,12 @@
     </ion-toolbar>
   </ion-header> -->
   <div class="main">
-
+    <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar>
     <div class="listuser animate__animated animate__fadeInUp">
 
 
       <!--test-->
-      <ion-card *ngFor="let element of listVideos">
-
+      <!-- <ion-card *ngFor="let element of listVideos">
 
         <video width="320" height="240" controls>
           <source [src]="element.video" type="video/mp4">
@@ -31,8 +30,23 @@
           </div>
         </ion-card-content>
 
-      </ion-card>
+      </ion-card> -->
       <!--test-->
+
+      <div class="box" *ngFor="let element of listVideos">
+        <!-- <video width="100%" height="345" controls>
+          <source [src]="element.video" type="video/mp4">
+        </video> -->
+        <!-- <iframe width="420" height="345"
+        [src]=" element.video " frameBorder="none">
+        </iframe> -->
+
+        <video width="100%" controls>
+          <source [src]="element.video" >
+        </video>
+
+        <p>{{element.titre}}</p>
+      </div>
 
 
     </div>

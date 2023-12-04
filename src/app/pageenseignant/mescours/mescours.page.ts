@@ -39,14 +39,10 @@ export class MescoursPage implements OnInit {
   async getListeCoursByEnseignant() {
     try {
       const niveauId = this.enseignant.idEnseignant;
-      console.log('ID de l\'enseignant :', niveauId);
 
       if (niveauId) {
         const listCours = await this.coursService.getListeByEnseignant(niveauId).toPromise();
-        console.log('Cours récupérés du service :', listCours);
-
         this.listCours = listCours;
-        console.log('Mes cours après attribution :', this.listCours);
       }
     } catch (error) {
       console.error('Erreur lors du chargement des cours', error);

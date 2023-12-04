@@ -47,7 +47,6 @@ export class AjoutervideoComponent  implements OnInit {
 
   documentChange(event: any) {
     this.video = event.target.files[0];
-    console.log(this.video);
   }
 
 

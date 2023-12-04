@@ -18,10 +18,8 @@ export class InfosEtudiantdiantPage implements OnInit {
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => {
-      console.log("param ", params);
       const idEtudiant = params['idEtudiant'];
       this.idEtudiant = idEtudiant;
-      console.log("pp ", this.idEtudiant);
       this.chargerBulletin();
       // Afficher le PDF correspondant (utilisez une bibliothèque ou plugin pour afficher les PDF)
     });

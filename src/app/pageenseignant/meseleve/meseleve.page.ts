@@ -43,7 +43,7 @@ export class MeselevePage implements OnInit {
     this.abonnementService.getListeAbonnementByEnseignant(idEnseignant).subscribe((result:any) => {
       // Traitement des données reçues
       this.abonnements = result;
-      console.log(result);
+     
     });
   }
 

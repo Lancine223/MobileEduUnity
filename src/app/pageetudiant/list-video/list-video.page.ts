@@ -25,18 +25,32 @@ export class ListVideoPage implements OnInit {
 
 
    ngOnInit() {
-
     this.videosService.update$.subscribe(() => {
       this.getListeVideosByEnseignant();
     });
 
+
   }
+
+
 
   async getListeVideosByEnseignant() {
 
         const listVideos = await this.videosService.getListeByEnseignant(this.idEnseignant).toPromise();
         this.listVideos = listVideos;
   }
+
+
+  handleInput(event: Event) {
+    // const query = event.target.value.toLowerCase();
+    // this.results = this.listVideos.filter((d:any) => d.toLowerCase().indexOf(query) > -1);
+
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.listVideos.filter = filterValue.trim().toLowerCase();
+  }
+
+
+
 
 
 }

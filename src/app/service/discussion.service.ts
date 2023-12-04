@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { Discussion } from '../model/discussion';
 
 @Injectable({
   providedIn: 'root'
@@ -23,11 +24,13 @@ export class DiscussionService {
     return this.http.get<any[]>(`${this.baseUrl}/list/${idForum}`);
   }
 
+
+
   ajouterDiscussion(discussion: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/add`, discussion);
   }
 
-  supprimerDiscussion(discussion: any): Observable<string> {
+  supprimerDiscussion(discussion: Discussion): Observable<string> {
     return this.http.delete<string>(`${this.baseUrl}/supprimer`, { body: discussion });
   }
 }

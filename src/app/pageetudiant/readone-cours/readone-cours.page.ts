@@ -18,7 +18,6 @@ export class ReadoneCoursPage implements OnInit {
       // Afficher le PDF correspondant (utilisez une bibliothèque ou plugin pour afficher les PDF)
     });
     this.idEnseignant = localStorage.getItem('idEn');
-    console.log("l' id en :",this.idEnseignant);
    }
 
   ngOnInit() {

@@ -7,7 +7,7 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <div id="container">
-    <p style="text-align: center;"> Mes Enseignants </p>
+    <!-- <p style="text-align: center;"> Mes Enseignants </p> -->
     <div *ngIf="abonnements && abonnements.length > 0" class="card animate__animated animate__fadeInUp ">
 
       <!---->
@@ -50,8 +50,8 @@
 
 
     <div *ngIf="!abonnements">
-      <h2 style="text-align: center;">Aucun enseignant disponible pour la classe {{etudiantConnect.classe.nom}}</h2>
-      <p style="text-align: center;">Merci de vous patienter !</p>
+      <h2 style="text-align: center;"> Vous n' êtes pas abonner </h2>
+      <p style="text-align: center;">Merci de vous abonner !</p>
       <img src="../../../assets/img/abonner.jpg" alt="" width="100%" height="100%">
 
       <ion-card style="border-radius: 25px; " id="card">

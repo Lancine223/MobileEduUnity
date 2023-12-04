@@ -1,51 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Forum } from 'src/app/model/forum';
-import { DiscussionService } from 'src/app/service/discussion.service';
-import { ForumService } from 'src/app/service/forum.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Enseignant } from 'src/app/model/enseignant';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Observable, switchMap, tap } from 'rxjs';
-import { HttpHeaders } from '@angular/common/http';
+import { Etudiant } from 'src/app/model/etudiant';
+import { Forum } from 'src/app/model/forum';
+import { AuthetudiantService } from 'src/app/service/authetudiant.service';
+import { DiscussionService } from 'src/app/service/discussion.service';
+import { ForumService } from 'src/app/service/forum.service';
 
 @Component({
-  selector: 'app-discuterforumenseignant',
-  templateUrl: './discuterforumenseignant.page.html',
-  styleUrls: ['./discuterforumenseignant.page.scss'],
+  selector: 'app-discussion-etudiant',
+  templateUrl: './discussion-etudiant.page.html',
+  styleUrls: ['./discussion-etudiant.page.scss'],
 })
-export class DiscuterforumenseignantPage implements OnInit {
+export class DiscussionEtudiantPage implements OnInit {
 
-  enseignant: Enseignant;
-  messageForm!: FormGroup|any;
+  etudiant: Etudiant|any
+  messageForm2!: FormGroup|any;
   forum: Forum|any;
-  isLoading = false;
+  idEnseignant: any;
   discussions: []|any;
   constructor(
     private forumService: ForumService,
      private route: ActivatedRoute,
      private formBuilder: FormBuilder,
      private router: Router,
+     private authEtService: AuthetudiantService,
      private alertController: AlertController,
      private discussionService: DiscussionService ) {
+      this.assigneerEnseignant();
+    this.idEnseignant = localStorage.getItem('idEnForum');
     this.chargeForum();
-    this.enseignant = JSON.parse(localStorage.getItem('enseignant')!);
-    this.messageForm = this.formBuilder.group({
+    this.messageForm2 = this.formBuilder.group({
       message: ['', Validators.required],
-      forum: '',
       etudiant: '',
       enseignant: '',
-
+      forum: '',
 
     });
+
+
 
      }
 
   ngOnInit() {
 
-
-
-
+    this.authEtService.update$.subscribe((result) => {
+      this.assigneerEnseignant();
+    });
+    this.idEnseignant = localStorage.getItem('idEnForum');
+    this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
     this.chargeForum().subscribe(
       () => {
 
@@ -58,29 +63,35 @@ export class DiscuterforumenseignantPage implements OnInit {
 
       this.discussionService.update$.subscribe(()=>{
         this.loadDiscussions(this.forum.idForum);
+        this.chargeForum();
       })
 
   }
 
+
   chargeForum(): Observable<any> {
     return this.route.paramMap.pipe(
       switchMap((params: any) => {
-        const id = +params.get('id');
+        const id = +params.get('idForum');
         return this.forumService.getOneForum(id);
       }),
       tap((forum: any) => {
         this.forum = forum;
         this.loadDiscussions(forum.idForum); // Utilisez l'id du forum ici
+
       })
     );
   }
 
-
+  assigneerEnseignant(){
+    this.etudiant = JSON.parse(localStorage.getItem('etudiant')!);
+  }
 
   loadDiscussions(idFoum: number): void {
     this.discussionService.getListeDiscussions(idFoum).subscribe(
       (discussions: any[]) => {
         this.discussions = discussions;
+        console.log("Discussion :=====",this.discussions);
       },
       (error) => {
         console.error('Erreur lors du chargement des discussions', error);
@@ -90,19 +101,17 @@ export class DiscuterforumenseignantPage implements OnInit {
   }
 
   onSubmit() {
-    if (this.messageForm.valid ) {
-      const data = this.messageForm.value;
+    if (this.messageForm2.valid ) {
+      const data = this.messageForm2.value;
       data.forum = this.forum;
-      data.enseignant = this.enseignant;
-      data.etudiant = null;
-
-      console.log("data AVANT", data);
+      data.enseignant = null;
+      data.etudiant = this.etudiant;
 
       this.discussionService.ajouterDiscussion(data).subscribe(
         (response) => {
           console.log("ress", response);
           console.log("data", data);
-          this.messageForm.reset();
+          this.messageForm2.reset();
           this.discussionService.triggerUpdate();
         },
         async (error) => {
@@ -118,8 +127,6 @@ export class DiscuterforumenseignantPage implements OnInit {
       ).add(() => {
         this.forumService.triggerUpdate();
       });
-
-          console.log("data", data);
 
     }
 
@@ -169,5 +176,6 @@ export class DiscuterforumenseignantPage implements OnInit {
     this.chargeForum();
     this.discussionService.triggerUpdate();
   }
+
 
 }

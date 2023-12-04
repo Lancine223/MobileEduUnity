@@ -1,6 +1,13 @@
 
 
-<ion-card color="light">
+<ion-toolbar color="light">
+  <!-- <ion-title>mesdevoirsenseignant</ion-title> -->
+  <ion-buttons slot="start">
+    <ion-icon size="large" name="arrow-undo-outline" style="color: #725787;" [routerLink]="['/mesforum']"></ion-icon>
+  </ion-buttons>
+  <ion-title style="color: #725787;"> Discussion </ion-title>
+</ion-toolbar>
+<ion-card style="background: #725787; color: #ffffff;">
   <ion-card-content>
 
     {{forum?.titre}}
@@ -9,32 +16,85 @@
   </ion-card-content>
 </ion-card>
 
-<ion-content >
-    <div class="listuser animate__animated animate__fadeInUp" *ngIf=" discussions ">
-      <ion-card color="light" *ngFor="let element of discussions ">
-        <ion-card-header>
-          <ion-card-subtitle>{{element?.message}}</ion-card-subtitle>
-        </ion-card-header>
-        <h2 style="margin-left: 10px;"> {{ element?.enseignant.prenom }} {{ element?.enseignant.nom }}</h2>
-        <h2 style="margin-left: 10px;"> {{ element?.etudiant.prenom }} {{ element?.etudiant.nom }}</h2>
-        <div class="iconitem">
-          <ion-button fill="outline" size="large" color="primary"  style="color: #ffffff"><ion-icon name="chatbubble-ellipses-outline"></ion-icon> </ion-button>
-          <ion-button color="danger" size="large" fill="outline"   (click)="presentAlert(element)" style="color: #ffffff"><ion-icon name="trash" ></ion-icon></ion-button>
-        </div>
-      </ion-card>
+<ion-content>
+    <div class="listuser animate__animated animate__fadeInUp" >
+          <!-- <ion-list   style="border-radius:  200px  200px  0 200px; margin-left: 10px; margin-right: 10px;" color="medium" >
+            <ion-item *ngFor="let element of discussions " color="medium" >
+             <div style="margin: 10px;" >
+              <p >{{element?.message}}</p>
+              <p style="color: #725787; font-weight: bold; font-style: italic !important;" > <ion-label>{{ element?.enseignant.prenom }} {{ element?.enseignant.nom }}</ion-label></p>
+              <p style="color: #725787; font-weight: bold; font-style: italic !important;" >{{ element?.etudiant.prenom }} {{ element?.etudiant.nom }}</p>
+            </div>
+              <ion-thumbnail slot="end" color="light" style="background: none !important;">
+                <ion-button fill="clear" (click)="presentAlert(element)" > <ion-icon size="large" name="close-outline" style="color: #725787;"></ion-icon> </ion-button>
+              </ion-thumbnail>
+            </ion-item>
+          </ion-list> -->
+
+          <ion-list
+            lines="none"
+            *ngIf=" discussions ">
+            <ion-item-group class="chats-group" *ngFor="let element of discussions ">
+
+              <!--
+              <ion-item
+              lines="none"
+              [class]="element?.enseignant == null ? 'sender' : 'user' "
+               >
+
+                <ion-label
+               [slot]="element?.enseignant == null ? 'end' : 'start' "
+               class="ion-text-wrap"
+               >
+              -->
+              <ion-item
+              lines="none"
+              [class]="element?.enseignant == null ? 'sender' : 'user' "
+               >
+               <ion-label
+               [slot]="element?.enseignant == null ? 'end' : 'start' "
+               class="ion-text-wrap"
+               >
+               <ion-text>{{element?.message}}</ion-text>
+               <ion-note>
+                <ion-icon style="color: #725787 !important;" size="small" *ngIf=" element?.enseignant" name="checkmark-done-outline"></ion-icon>
+                <small *ngIf=" element?.etudiant ">{{ element?.etudiant.prenom }} {{ element?.etudiant.nom }}</small>
+               </ion-note>
+
+               </ion-label>
+
+              </ion-item>
+
+            </ion-item-group>
+          </ion-list>
+
+
   </div>
 
 </ion-content>
 
-<div class="principe">
-  <form [formGroup]="messageForm" (ngSubmit)="onSubmit()" >
-    <div class="bottom">
-      <!-- <div class="dv"> -->
-        <input  type="text" placeholder=" " formControlName="message" required>
-      <!-- </div> -->
-      <ion-button type="submit"  size="large" color="blank" [disabled]="!messageForm.valid" style="color: #725787; width: 100px;" ><ion-icon size="large" name="paper-plane-outline"></ion-icon></ion-button>
-    </div>
-  </form>
 
 
-</div>
+<ion-footer>
+  <ion-toolbar>
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()" >
+      <ion-textarea
+      slot="start"
+      autoGrow
+      placeholder="Envoyer un message"
+      class="ion-text-center"
+      formControlName="message"
+      name="message"
+      id="message"
+      >
+
+      </ion-textarea>
+      <ion-button [disabled]=" !messageForm.valid " type="submit" color="blank" size="large">
+        <ion-icon  style="color: #725787 !important;" name="send"></ion-icon>
+      </ion-button>
+
+    </form>
+
+  </ion-toolbar>
+</ion-footer>
+

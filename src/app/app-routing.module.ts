@@ -115,6 +115,16 @@ const routes: Routes = [
     path: 'discuterforumenseignant/:id',
     loadChildren: () => import('./pageenseignant/discuterforumenseignant/discuterforumenseignant.module').then( m => m.DiscuterforumenseignantPageModule)
   },
+  {
+    path: 'list-forum/:idEnseignant',
+    loadChildren: () => import('./pageetudiant/list-forum/list-forum.module').then( m => m.ListForumPageModule)
+  },
+  {
+    path: 'discussion-etudiant/:idForum',
+    loadChildren: () => import('./pageetudiant/discussion-etudiant/discussion-etudiant.module').then( m => m.DiscussionEtudiantPageModule)
+  },
+
+
 
 
 

@@ -37,7 +37,7 @@
       </a>
         <!---->
         <!---->
-        <a routerLink="/mesquiz" style="text-decoration: none;">
+        <a  style="text-decoration: none;">
         <ion-card style="border-radius: 25px;">
           <div class="logoimg"><img style="margin-top: 1rem;" alt="Silhouette of mountains" src="../../../assets/img/quiz.png" width="100px" height="80px" /></div>
           <ion-card-header>
@@ -47,7 +47,7 @@
       </a>
         <!---->
         <!---->
-        <a routerLink="/mesforum" style="text-decoration: none;">
+        <a [routerLink]="['/list-forum', idEnseignant]" style="text-decoration: none;">
         <ion-card style="border-radius: 25px; " id="card">
           <div class="logoimg"><img style="margin-top: 1rem;" alt="Silhouette of mountains" src="../../../assets/img/forum.png" width="100px" height="80px" /></div>
           <ion-card-header>

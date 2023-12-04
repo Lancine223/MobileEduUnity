@@ -14,21 +14,10 @@ ion-button {
   --background: #725787;
 
   }
-ion-card{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  }
-video{
-  box-sizing: border-box;
-}
 .main{
   margin: 10px;
 }
-.row{
-  display: flex;
-  justify-content: space-between;
-}
+
 
 #container{
   display: grid;
@@ -36,16 +25,14 @@ video{
   border-radius: 0px  0px 200px 0px;
 }
 .iconitem{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 .iconitem {
   font-size: 20px !important;
-  margin-left: 20px;
+  margin: 20px;
 
 }
-
 .card{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -59,6 +46,20 @@ video{
   margin-left: 10px !important;
   margin-right: 10px !important;
 }
+ion-toolbar{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+  // box-shadow: 2px 2px 18px rgba(255, 0, 255, 0.18);
+}
+
+ion-header{
+  border-radius: 0 0 100px;
+  background: #ffffff;
+  box-shadow: 2px 5px 18px rgba(234, 229, 234, 0.18);
+
+}
+
 .img{
   display: grid;
   justify-content: center;
@@ -77,9 +78,3 @@ video{
   background-color: #D9D9D9;
 }
 
-.box{
-  display: grid;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-}
