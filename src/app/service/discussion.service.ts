@@ -27,7 +27,7 @@ export class DiscussionService {
 
 
   ajouterDiscussion(discussion: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/add`, discussion);
+    return this.http.post('http://localhost:8080/discussion/podjocreate', discussion);
   }
 
   supprimerDiscussion(discussion: Discussion): Observable<string> {

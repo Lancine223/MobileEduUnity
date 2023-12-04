@@ -129,6 +129,7 @@ ion-content{
   border-radius: 200px  200px  200px -0px;
   color: black;
     ion-text{
+      margin: 10px;
     &:after {
     width: 72px !important;
     }
@@ -165,6 +166,7 @@ ion-content{
   border-radius: 200px  200px  -0px 200px;
   color: black;
   ion-text{
+    margin: 10px;
   &:after {
   width: 72px !important;
   }
@@ -214,6 +216,7 @@ ion-item{
     ion-text{
       font-weight: 400;
       font-size: 0.9rem;
+      margin: 10px;
       &:after{
         content: '';
         width: 50px !important;

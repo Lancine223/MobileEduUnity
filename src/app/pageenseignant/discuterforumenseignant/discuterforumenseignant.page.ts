@@ -39,6 +39,7 @@ export class DiscuterforumenseignantPage implements OnInit {
 
     });
 
+
      }
 
   ngOnInit() {
@@ -92,34 +93,34 @@ export class DiscuterforumenseignantPage implements OnInit {
   onSubmit() {
     if (this.messageForm.valid ) {
       const data = this.messageForm.value;
-      data.forum = this.forum;
-      data.enseignant = this.enseignant;
-      data.etudiant = null;
+      data.forum = this.forum.idForum;
+      data.enseignant = this.enseignant.idEnseignant;
+      data.etudiant = 0;
 
-      console.log("data AVANT", data);
 
       this.discussionService.ajouterDiscussion(data).subscribe(
         (response) => {
-          console.log("ress", response);
-          console.log("data", data);
           this.messageForm.reset();
           this.discussionService.triggerUpdate();
         },
         async (error) => {
-          console.error('Erreur lors de l\'ajout de la discussion', error);
-          const msg = error.error.message;
-          const alert = await this.alertController.create({
-            header: 'Erreur de validation',
-            message: msg,
-            buttons: ['OK']
-          });
-          await alert.present();
+          console.error('Message lors de l\'ajout de la discussion', error.error.text);
+          this.forumService.triggerUpdate();
+          this.messageForm.reset();
+          this.forumService.triggerUpdate();
+          this.discussionService.triggerUpdate();
+          this.chargeForum();
         }
       ).add(() => {
         this.forumService.triggerUpdate();
+      this.messageForm.reset();
+      this.forumService.triggerUpdate();
+      this.discussionService.triggerUpdate();
       });
-
-          console.log("data", data);
+      this.forumService.triggerUpdate();
+      this.messageForm.reset();
+      this.forumService.triggerUpdate();
+      this.discussionService.triggerUpdate();
 
     }
 

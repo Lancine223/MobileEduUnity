@@ -91,7 +91,6 @@ export class DiscussionEtudiantPage implements OnInit {
     this.discussionService.getListeDiscussions(idFoum).subscribe(
       (discussions: any[]) => {
         this.discussions = discussions;
-        console.log("Discussion :=====",this.discussions);
       },
       (error) => {
         console.error('Erreur lors du chargement des discussions', error);
@@ -103,29 +102,28 @@ export class DiscussionEtudiantPage implements OnInit {
   onSubmit() {
     if (this.messageForm2.valid ) {
       const data = this.messageForm2.value;
-      data.forum = this.forum;
-      data.enseignant = null;
-      data.etudiant = this.etudiant;
+      data.forum = this.forum.idForum;
+      data.enseignant = 0;
+      data.etudiant = this.etudiant.idEtudiant;
 
       this.discussionService.ajouterDiscussion(data).subscribe(
         (response) => {
-          console.log("ress", response);
-          console.log("data", data);
           this.messageForm2.reset();
           this.discussionService.triggerUpdate();
+          this.forumService.triggerUpdate();
         },
         async (error) => {
-          console.error('Erreur lors de l\'ajout de la discussion', error);
-          const msg = error.error.message;
-          const alert = await this.alertController.create({
-            header: 'Erreur de validation',
-            message: msg,
-            buttons: ['OK']
-          });
-          await alert.present();
+          console.error('Message lors de l\'ajout de la discussion', error.error.text);
+          this.messageForm2.reset();
+          this.discussionService.triggerUpdate();
+          this.forumService.triggerUpdate();
+
         }
       ).add(() => {
         this.forumService.triggerUpdate();
+        this.messageForm2.reset();
+          this.discussionService.triggerUpdate();
+          this.forumService.triggerUpdate();
       });
 
     }
